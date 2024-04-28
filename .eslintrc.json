@@ -1,3 +1,103 @@
 {
-  "extends": "next/core-web-vitals"
+	"parser": "@typescript-eslint/parser",
+	"env": {
+		"browser": true,
+		"es2021": true,
+		"node": true
+	},
+	"extends": [
+		"next/core-web-vitals",
+		"prettier"
+	],
+	"parserOptions": {
+		"ecmaVersion": 13,
+		"sourceType": "module"
+	},
+	"plugins": [
+		"@typescript-eslint",
+		"html",
+		"tailwindcss",
+		"prettier"
+	],
+	"rules": {
+		"indent": "off",
+		"max-len": "off",
+		"no-tabs": "off",
+		"no-shadow": "off",
+		"key-spacing": "off",
+		"import/order": "off",
+		"padded-blocks": "off",
+		"no-unused-vars": "off",
+		"linebreak-style": "off",
+		"arrow-body-style": "off",
+		"no-empty-pattern": "off",
+		"import/extensions": "off",
+		"no-nested-ternary": "off",
+		"capitalized-comments": "off",
+		"import/no-unresolved": "off",
+		"no-underscore-dangle": "off",
+		"no-use-before-define": "off",
+		"no-promise-executor-return": "off",
+		"import/prefer-default-export": "off",
+		"@typescript-eslint/ban-ts-comment": "off",
+		"import/no-extraneous-dependencies": "off",
+		"@typescript-eslint/no-explicit-any": "off",
+		"@typescript-eslint/no-empty-interface": "off",
+		"object-curly-spacing": [
+			"error",
+			"always"
+		],
+		"camelcase": [
+			"error",
+			{
+			"ignoreImports": true,
+			"ignoreDestructuring": true
+			}
+		],
+		"prettier/prettier": [
+			"error",
+			{
+			"attributeGroups": [
+				"^class$",
+				"^(id|name)$",
+				"$DEFAULT",
+				"^aria-"
+			],
+			"arrowParens": "always",
+			"bracketSpacing": true,
+			"endOfLine": "crlf",
+			"experimentalTernaries": true,
+			"htmlWhitespaceSensitivity": "ignore",
+			"jsxSingleQuote": true,
+			"printWidth": 130,
+			"proseWrap": "always",
+			"semi": true,
+			"singleAttributePerLine": true,
+			"singleQuote": true,
+			"tabWidth": 4,
+			"trailingComma": "all",
+			"useTabs": true,
+			"quoteProps": "consistent",
+			"plugins": [
+				"prettier-plugin-css-order",
+				"prettier-plugin-organize-imports",
+				"prettier-plugin-organize-attributes",
+				"prettier-plugin-tailwindcss"
+			]
+			}
+		],
+		"no-trailing-spaces": [
+			"error",
+			{
+			"ignoreComments": true
+			}
+		],
+		"@typescript-eslint/no-unused-vars": [
+			"error",
+			{
+			"argsIgnorePattern": "^_",
+			"varsIgnorePattern": "^_"
+			}
+		]
+	}
 }
