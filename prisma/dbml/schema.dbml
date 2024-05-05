@@ -1,0 +1,150 @@
+//// ------------------------------------------------------
+//// THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+//// ------------------------------------------------------
+
+Table User {
+  id Int [pk, increment]
+  firstName String [not null]
+  lastName String [not null]
+  email String [unique, not null]
+  phone String [not null]
+  password String [not null]
+  avatarColor String [not null]
+  balance Float [not null]
+  createdAt DateTime [default: `now()`, not null]
+  updatedAt DateTime [not null]
+  customer Customer
+}
+
+Table Customer {
+  id Int [pk, increment]
+  shippingAddresses ShippingAddress
+  orders Order [not null]
+  transactions Transaction [not null]
+  user User [not null]
+  userId Int [unique, not null]
+}
+
+Table ShippingAddress {
+  id Int [pk, increment]
+  label String [not null, default: 'Qatar University']
+  street String [not null, default: 'Street 1234']
+  city String [not null, default: 'Doha']
+  country String [not null, default: 'Qatar']
+  url String [not null, default: 'https://www.google.com/maps/place/Qatar+University/@25.3755282,51.4861504,17z/data=!3m1!4b1!4m6!3m5!1s0x3e45dd1faaf07c23:0x21f2193775153df1!8m2!3d25.3755282!4d51.4887307!16s%2Fm%2F05pdfng?entry=ttu']
+  customer Customer [not null]
+  customerId Int [unique, not null]
+}
+
+Table Order {
+  id Int [pk, increment]
+  quantity Int [not null]
+  subtotal Float [not null]
+  shippingFee Float [not null]
+  total Float [not null]
+  dateTime DateTime [default: `now()`, not null]
+  estimatedArrival DateTime [not null]
+  customer Customer [not null]
+  customerId Int [unique, not null]
+  product Product [not null]
+  productId Int [unique, not null]
+}
+
+Table Product {
+  id Int [pk, increment]
+  name String [not null]
+  description String [not null]
+  price Float [not null]
+  quantity Int [not null]
+  weight Float [not null]
+  flightTime Float [not null]
+  rating Float [not null]
+  numberOfReviews Int [not null]
+  numberOfSales Int [not null]
+  numberOfOngoingOrders Int [not null]
+  imageUrl String [not null]
+  series Series [not null]
+  seriesId Int [not null]
+  features Feature [not null]
+  includedItems IncludedItem [not null]
+  faqs FAQ [not null]
+  model Model [not null]
+  modelId Int [not null]
+  orders Order [not null]
+}
+
+Table Series {
+  id Int [pk, increment]
+  name String [not null]
+  products Product [not null]
+}
+
+Table Feature {
+  id Int [pk, increment]
+  name String [not null]
+  imageUrl String [not null]
+  product Product [not null]
+  productId Int [not null]
+}
+
+Table IncludedItem {
+  id Int [pk, increment]
+  name String [not null]
+  quantity Int [not null]
+  imageUrl String [not null]
+  product Product [not null]
+  productId Int [not null]
+}
+
+Table FAQ {
+  id Int [pk, increment]
+  question String [not null]
+  answer String [not null]
+  product Product [not null]
+  productId Int [not null]
+}
+
+Table Model {
+  id Int [pk, increment]
+  url String [not null]
+  positionX Float [not null]
+  positionY Float [not null]
+  positionZ Float [not null]
+  rotationX Float [not null]
+  rotationY Float [not null]
+  rotationZ Float [not null]
+  scale Float [not null]
+  cameraX Float [not null]
+  cameraY Float [not null]
+  cameraZ Float [not null]
+  products Product [not null]
+}
+
+Table Transaction {
+  id Int [pk, increment]
+  amount Float [not null]
+  dateTime DateTime [default: `now()`, not null]
+  type String [not null]
+  customer Customer [not null]
+  customerId Int [unique, not null]
+}
+
+Ref: Customer.userId - User.id
+
+Ref: ShippingAddress.customerId - Customer.id
+
+Ref: Order.customerId > Customer.id
+
+Ref: Order.productId > Product.id
+
+Ref: Product.seriesId > Series.id
+
+Ref: Product.modelId > Model.id
+
+Ref: Feature.productId > Product.id
+
+Ref: IncludedItem.productId > Product.id
+
+Ref: FAQ.productId > Product.id
+
+Ref: Transaction.customerId > Customer.id

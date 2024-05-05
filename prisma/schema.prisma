@@ -2,10 +2,170 @@
 // learn more about it in the docs: https://pris.ly/d/prisma-schema
 
 generator client {
-  provider = "prisma-client-js"
+    provider = "prisma-client-js"
+}
+
+generator dbml {
+    provider = "prisma-dbml-generator"
 }
 
 datasource db {
-  provider = "sqlite"
-  url      = env("DATABASE_URL")
+    provider = "sqlite"
+    url      = env("DATABASE_URL")
+}
+
+model User {
+    id          Int      @id @default(autoincrement())
+    firstName   String
+    lastName    String
+    email       String   @unique
+    phone       String
+    password    String
+    avatarColor String
+    balance     Float
+    createdAt   DateTime @default(now())
+    updatedAt   DateTime @updatedAt
+
+    customer Customer?
+}
+
+model Customer {
+    id Int @id @default(autoincrement())
+
+    shippingAddresses ShippingAddress?
+    orders            Order[]
+    transactions      Transaction[]
+
+    user   User @relation(fields: [userId], references: [id])
+    userId Int  @unique
+}
+
+model ShippingAddress {
+    id Int @id @default(autoincrement())
+
+    label   String @default("Qatar University")
+    street  String @default("Street 1234")
+    city    String @default("Doha")
+    country String @default("Qatar")
+    url     String @default("https://www.google.com/maps/place/Qatar+University/@25.3755282,51.4861504,17z/data=!3m1!4b1!4m6!3m5!1s0x3e45dd1faaf07c23:0x21f2193775153df1!8m2!3d25.3755282!4d51.4887307!16s%2Fm%2F05pdfng?entry=ttu")
+
+    customer   Customer @relation(fields: [customerId], references: [id])
+    customerId Int      @unique
+}
+
+model Order {
+    id Int @id @default(autoincrement())
+
+    quantity         Int
+    subtotal         Float
+    shippingFee      Float
+    total            Float
+    dateTime         DateTime @default(now())
+    estimatedArrival DateTime
+
+    customer   Customer @relation(fields: [customerId], references: [id])
+    customerId Int      @unique
+
+    product   Product @relation(fields: [productId], references: [id])
+    productId Int     @unique
+}
+
+model Product {
+    id Int @id @default(autoincrement())
+
+    name                  String
+    description           String
+    price                 Float
+    quantity              Int
+    weight                Float
+    flightTime            Float
+    rating                Float
+    numberOfReviews       Int
+    numberOfSales         Int
+    numberOfOngoingOrders Int
+    imageUrl              String
+
+    series   Series @relation(fields: [seriesId], references: [id])
+    seriesId Int
+
+    features      Feature[]
+    includedItems IncludedItem[]
+    faqs          FAQ[]
+
+    model   Model @relation(fields: [modelId], references: [id])
+    modelId Int
+
+    orders Order[]
+}
+
+model Series {
+    id Int @id @default(autoincrement())
+
+    name String
+
+    products Product[]
+}
+
+model Feature {
+    id Int @id @default(autoincrement())
+
+    name     String
+    imageUrl String
+
+    product   Product @relation(fields: [productId], references: [id])
+    productId Int
+}
+
+model IncludedItem {
+    id Int @id @default(autoincrement())
+
+    name     String
+    quantity Int
+    imageUrl String
+
+    product   Product @relation(fields: [productId], references: [id])
+    productId Int
+}
+
+model FAQ {
+    id Int @id @default(autoincrement())
+
+    question String
+    answer   String
+
+    product   Product @relation(fields: [productId], references: [id])
+    productId Int
+}
+
+model Model {
+    id Int @id @default(autoincrement())
+
+    url String
+
+    positionX Float
+    positionY Float
+    positionZ Float
+
+    rotationX Float
+    rotationY Float
+    rotationZ Float
+
+    scale Float
+
+    cameraX Float
+    cameraY Float
+    cameraZ Float
+
+    products Product[]
+}
+
+model Transaction {
+    id Int @id @default(autoincrement())
+
+    amount   Float
+    dateTime DateTime @default(now())
+    type     String
+
+    customer   Customer @relation(fields: [customerId], references: [id])
+    customerId Int      @unique
 }

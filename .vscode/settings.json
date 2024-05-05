@@ -19,5 +19,8 @@
 	"prettier.tabWidth": 4,
 	"prettier.singleQuote": true,
 	"prettier.trailingComma": "all",
-	"prettier.useTabs": true
+	"prettier.useTabs": true,
+	"[prisma]": {
+		"editor.defaultFormatter": "Prisma.prisma"
+	}
 }
