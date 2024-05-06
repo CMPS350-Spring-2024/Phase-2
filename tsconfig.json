@@ -34,10 +34,10 @@
 		"paths": {
 			"@/components/*": ["components/*"],
 			"@/data/*": ["data/*"],
+			"@/db/*": ["db/*"],
 			"@/layouts/*": ["layouts/*"],
 			"@/pages/*": ["pages/*"],
 			"@/public/*": ["../public/*"],
-			"@/repo/*": ["repo/*"],
 			"@/scripts/*": ["scripts/*"],
 			"@/styles/*": ["styles/*"],
 			"@/types/*": ["types/*"]

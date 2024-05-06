@@ -3,10 +3,10 @@ import fs from 'fs-extra';
 import path from 'path';
 const prisma = new PrismaClient();
 
-class UsersRepo {
+class UserService {
 	private _defaultDataPath = path.join(process.cwd(), 'src/data/default_admin.json');
 
-	addDefaultAdmin = async () => {
+	addDefaultData = async () => {
 		const defaultAdmin = await fs.readJson(this._defaultDataPath);
 		const createAdmin = this.transformJsonToModel(defaultAdmin);
 		const { balance: _, ...updateAdmin } = createAdmin;
@@ -28,4 +28,4 @@ class UsersRepo {
 	};
 }
 
-export default new UsersRepo();
+export default new UserService();

@@ -3,10 +3,41 @@ import fs from 'fs-extra';
 import path from 'path';
 const prisma = new PrismaClient();
 
-class ProductsRepo {
-	private _defaultDataPath = path.join(process.cwd(), 'src/data/product_list.json');
+type IGetMany = (options: {
+	id?: number;
+	seriesName?: string;
+	seriesDescription?: string;
+}) => Promise<Array<Product> | null | undefined>;
 
-	addProductList = async () => {
+class ProductService {
+	_defaultDataPath = path.join(process.cwd(), 'src/data/product_list.json');
+
+	getMany: IGetMany = async (options) => {
+		try {
+			return prisma.product.findMany({
+				where: {
+					id: options.id,
+					series: {
+						is: {
+							name: options.seriesName,
+							description: options.seriesDescription,
+						},
+					},
+				},
+				include: {
+					model: true,
+					series: true,
+					features: true,
+					includedItems: true,
+					faqs: true,
+				},
+			});
+		} catch (error) {
+			return null;
+		}
+	};
+
+	addDefaultData = async () => {
 		try {
 			const defaultProducts = await fs.readJson(this._defaultDataPath);
 
@@ -116,4 +147,4 @@ class ProductsRepo {
 	};
 }
 
-export default new ProductsRepo();
+export default new ProductService();
