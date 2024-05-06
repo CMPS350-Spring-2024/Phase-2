@@ -1,0 +1,74 @@
+@import url('/src/components/Alert/styles.css') layer(components);
+@import url('/src/components/Avatar/styles.css') layer(components);
+@import url('/src/components/Button/styles.css') layer(components);
+@import url('/src/components/Carousel/styles.css') layer(components);
+@import url('/src/components/DroneViewer/styles.css') layer(components);
+@import url('/src/components/Dropdown/styles.css') layer(components);
+@import url('/src/components/Footer/styles.css') layer(components);
+@import url('/src/components/Modal/styles.css') layer(components);
+@import url('/src/components/Navbar/styles.css') layer(components);
+@import url('/src/components/NumericInput/styles.css') layer(components);
+@import url('/src/components/PriceDisplay/styles.css') layer(components);
+@import url('/src/components/Rating/styles.css') layer(components);
+@import url('/src/components/TextInput/styles.css') layer(components);
+@import url('/src/components/Toast/styles.css') layer(components);
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@tailwind variants;
+
+/* Make all elements have position relative to make it easy to position absolute */
+* {
+	@apply relative;
+	@apply ring-blue-400 focus:z-10 focus:ring;
+}
+
+/* Make the body tag always fill the entire width */
+body {
+	@apply w-full overflow-y-auto;
+}
+
+/* Apply default styling to all paragraphs */
+p {
+	@apply text-sm;
+}
+
+/* Make the main element flow as a column by default */
+main {
+	@apply flex flex-col;
+}
+
+@layer components {
+	/* Primitive web components should only display their contents */
+	[component] {
+		@apply contents;
+	}
+
+	/* Make all icon sizes the same as their container font size */
+	.lucide {
+		@apply text-[1em];
+	}
+
+	/* Default spinner component */
+	.spinner {
+		@apply hidden;
+		@apply size-4;
+		@apply rounded-full border-[3px] border-current border-t-transparent;
+		@apply animate-spin;
+
+		&.active {
+			@apply inline-block;
+		}
+	}
+
+	span.divider {
+		@apply flex items-center;
+		@apply before:me-6 before:flex-[1_1_0%] before:border-t before:border-gray-200;
+		@apply after:ms-6 after:flex-[1_1_0%] after:border-t after:border-gray-200;
+
+		p {
+			@apply font-serif text-2xs font-normal uppercase leading-none text-secondary;
+		}
+	}
+}

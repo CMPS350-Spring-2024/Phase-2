@@ -1,0 +1,114 @@
+[
+	{
+		"_id": 498289164,
+		"amount": 700,
+		"type": "deposit",
+		"dateTime": 1711858093044,
+		"userId": 1035285191
+	},
+	{
+		"_id": 524136087,
+		"amount": 10212.5,
+		"type": "withdrawal",
+		"dateTime": 1711650480937,
+		"userId": 1035285191
+	},
+	{
+		"_id": 966144211,
+		"amount": 56117.75,
+		"type": "withdrawal",
+		"dateTime": 1711801426223,
+		"userId": 1035285191
+	},
+	{
+		"_id": 1229770368,
+		"amount": 18519,
+		"type": "withdrawal",
+		"dateTime": 1711627179899,
+		"userId": 1035285191
+	},
+	{
+		"_id": 1290687893,
+		"amount": 500,
+		"type": "deposit",
+		"dateTime": 1711913969345,
+		"userId": 1035285191
+	},
+	{
+		"_id": 1407082850,
+		"amount": 11977.5,
+		"type": "withdrawal",
+		"dateTime": 1711627751751,
+		"userId": 1035285191
+	},
+	{
+		"_id": 2279309575,
+		"amount": 11977.5,
+		"type": "withdrawal",
+		"dateTime": 1711946619460,
+		"userId": 1035285191
+	},
+	{
+		"_id": 2383652914,
+		"amount": 1021.25,
+		"type": "withdrawal",
+		"dateTime": 1711627148965,
+		"userId": 1035285191
+	},
+	{
+		"_id": 2449647224,
+		"amount": 10212.5,
+		"type": "withdrawal",
+		"dateTime": 1711627861478,
+		"userId": 1035285191
+	},
+	{
+		"_id": 2510766301,
+		"amount": 1021.25,
+		"type": "withdrawal",
+		"dateTime": 1711628573603,
+		"userId": 1035285191
+	},
+	{
+		"_id": 2908526906,
+		"amount": 1197.75,
+		"type": "withdrawal",
+		"dateTime": 1711627737410,
+		"userId": 1035285191
+	},
+	{
+		"_id": 3594585593,
+		"amount": 102125,
+		"type": "withdrawal",
+		"dateTime": 1711697651678,
+		"userId": 1035285191
+	},
+	{
+		"_id": 3838188989,
+		"amount": 10212.5,
+		"type": "withdrawal",
+		"dateTime": 1711697822163,
+		"userId": 1035285191
+	},
+	{
+		"_id": 3986995940,
+		"amount": 402448.25,
+		"type": "withdrawal",
+		"dateTime": 1711945973845,
+		"userId": 1035285191
+	},
+	{
+		"_id": 4027108626,
+		"amount": 1,
+		"type": "deposit",
+		"dateTime": 1711914383198,
+		"userId": 1035285191
+	},
+	{
+		"_id": 4279065277,
+		"amount": 3665.25,
+		"type": "withdrawal",
+		"dateTime": 1711627676316,
+		"userId": 1035285191
+	}
+]

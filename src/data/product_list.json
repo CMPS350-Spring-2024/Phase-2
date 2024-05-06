@@ -1,0 +1,1133 @@
+[
+	{
+		"_id": 0,
+		"name": "Mavic 3 Pro",
+		"description": "The DJI Mavic 3 Pro is a top-tier drone with impressive performance, excellent imaging, and extensive range, ideal for photographers and filmmakers in diverse settings.",
+		"imageUrl": "/images/Mavic 3 Pro.webp",
+		"model": {
+			"url": "/models/Mavic 3 Pro.glb",
+			"position": {
+				"x": 0,
+				"y": 0,
+				"z": 0
+			},
+			"rotation": {
+				"x": -0.06981317007977318,
+				"y": 0,
+				"z": 0
+			},
+			"scale": 7.5,
+			"cameraPosition": {
+				"x": 1.5,
+				"y": 0,
+				"z": 2.8
+			}
+		},
+		"price": 2199,
+		"quantity": 1043,
+		"weight": 998,
+		"flightTime": 43,
+		"rating": 3.6,
+		"numberOfReviews": 4415,
+		"numberOfSales": 0,
+		"numberOfOngoingOrders": 6,
+		"series": {
+			"name": "Mavic",
+			"model": "3 Pro",
+			"description": "Aerial Photography"
+		},
+		"features": [
+			{
+				"name": "4/3 CMOS Hasselblad Camera",
+				"imageUrl": "/icons/CMOS Triple Camera.svg"
+			},
+			{
+				"name": "Dual Tele Cameras",
+				"imageUrl": "/icons/Dual Tele Cameras.svg"
+			},
+			{
+				"name": "Tri-Camera Apple ProRes Support",
+				"imageUrl": "/icons/Apple ProRes Support.svg"
+			},
+			{
+				"name": "15km HD Video Transmission",
+				"imageUrl": "/icons/15km Video Transmission.svg"
+			},
+			{
+				"name": "Omnidirectional Obstacle Sensing",
+				"imageUrl": "/icons/Omnidirectional Obstacle Sensing.svg"
+			},
+			{
+				"name": "43m Max Flight Time",
+				"imageUrl": "/icons/43m Flight Time.svg"
+			}
+		],
+		"includedItems": [
+			{
+				"name": "DJI Mavic 3 Pro",
+				"quantity": 1,
+				"imageUrl": "/images/Mavic 3 Pro Folded.webp"
+			},
+			{
+				"name": "DJI RC",
+				"quantity": 1,
+				"imageUrl": "/images/RC.webp"
+			},
+			{
+				"name": "DJI Mavic 3 Series Intelligent Flight Battery",
+				"quantity": 1,
+				"imageUrl": "/images/Mavic 3 Series Intelligent Flight Battery.webp"
+			},
+			{
+				"name": "DJI Mavic 3 Series Low-Noise Propellers (Pair)",
+				"quantity": 3,
+				"imageUrl": "/images/Mavic 3 Series Low-Noise Propellers (Pair).webp"
+			},
+			{
+				"name": "DJI 65W Portable Charger",
+				"quantity": 1,
+				"imageUrl": "/images/65W Portable Charger.webp"
+			},
+			{
+				"name": "USB 3.0 Type-C Cable",
+				"quantity": 1,
+				"imageUrl": "/images/USB 3.0 Type-C Cable.webp"
+			},
+			{
+				"name": "DJI Mavic 3 Pro Storage Cover",
+				"quantity": 1,
+				"imageUrl": "/images/Mavic 3 Pro Storage Cover.webp"
+			},
+			{
+				"name": "DJI RC Spare Control Sticks (pair)",
+				"quantity": 1,
+				"imageUrl": "/images/RC Spare Control Sticks (Pair).webp"
+			}
+		],
+		"faqs": [
+			{
+				"question": "Is it necessary to upgrade to the Mavic 3 Pro Series if I already have a Mavic 3 or Mavic 3 Classic?",
+				"answer": "Compared with Mavic 3 and Mavic 3 Classic, we've significantly upgraded the imaging performance of the Mavic 3 Pro Series.\nThe Mavic 3 Pro Series includes DJI's first tri-camera flagship drones with multiple focal lengths. It uses the same wide-angle 4/3 CMOS Hasselblad camera as Mavic 3 and Mavic 3 Classic. Compared with Mavic 3, it adds a 1/1.3-inch CMOS 70mm medium tele camera with 48MP effective pixels. It also has an upgraded 1/2-inch CMOS 166mm tele camera with 12MP effective pixels, providing more flexible aerial photography perspectives while enhancing creative efficiency and freedom.\nAll three cameras of the Mavic 3 Pro Series drones support shooting 4K/60fps video, and all three cameras of the Cine version support Apple ProRes 422/422 HQ/422 LT codecs. No matter which version you choose, you will enjoy high-level professional creation.\nIf you need more focal length options, better creative effects, and work that has more expressive composition and storytelling details, the Mavic 3 Pro Series is here to meet your shooting needs.\nIn addition, the Mavic 3 Pro Series also supports the Hasselblad Natural Colour Solution (HNCS), D-Log, D-Log M, HLG, and other color modes, which retain more image details and facilitate more efficient color grading in post-production."
+			},
+			{
+				"question": "What are some use cases for the new 70mm medium tele camera of the Mavic 3 Pro Series?",
+				"answer": "The 70mm medium tele camera is equipped with a 1/1.3″ CMOS sensor. Compared with the wide-angle Hasselblad camera, the 70mm medium tele camera captures footage with a stronger sense of spatial compression, which can better capture the relationship between the subject and the surroundings, highlight the subject in a complex environment, and create a visual focus in the image or video. Additionally, the medium tele camera supports Night video mode (Night Shots), presenting brilliant nighttime scenes at a 70mm focal length.\nCompared with the 166mm tele camera, using the medium tele camera may be better in some scenarios. It enables new aerial photography perspectives and can help to achieve different camera movements. You don't need to replace the camera on the drone during shooting. Just tap the screen to switch between different focal lengths, making transitions smoother and more natural.\nThe medium tele camera supports a 3x optical zoom and the new D-Log M color mode, further reducing the difficulty of color grading in post-production. It also supports FocusTrack, Hyperlapse, and 3x-7x digital zoom to help you create cinematic footage effortlessly."
+			},
+			{
+				"question": "What are the advantages of the 166mm tele camera?",
+				"answer": "The upgraded tele camera features higher resolution and a wider f/3.4 aperture. It supports shooting 4K/60fps video with 7x optical zoom and 12MP photos. The hybrid zoom reaches up to 28x. Zoom in and immerse your image in rich details. The tele camera also supports HLG and 10-bit D-Log M color modes, enabling greater flexibility in post-production."
+			},
+			{
+				"question": "What differentiates Mavic 3 Pro Cine from Mavic 3 Pro? How should I choose?",
+				"answer": "The Mavic 3 Pro Series includes two versions: Mavic 3 Pro and Mavic 3 Pro Cine.\nMavic 3 Pro inherits DJI's flagship imaging and flight performance. It is portable, powerful, and suitable for photography enthusiasts, professional photographers, and film/television studios.\nMavic 3 Pro Cine boasts a built-in 1TB SSD and supports professional video encoding like Apple ProRes 422, Apple ProRes 422 HQ, and Apple ProRes 422 LT. It is a perfect choice for professional film/television production."
+			},
+			{
+				"question": "What are the differences between DJI RC and DJI RC Pro? How should I choose?",
+				"answer": "Both remote controllers come with a 5.5-inch HD screen, so you can power on and use them directly without the need to connect to a mobile device.\nDJI RC Pro features a screen brightness of up to 1000 nits and supports the installation of third-party apps and the live stream function, allowing you to live stream the real-time camera view during flight.\nDJI RC Pro is equipped with the latest-generation processor, offering stronger performance and lower power consumption. This results in 4x improved CPU performance, 7x improved GPU performance, and 20% lower power consumption over its predecessor. DJI RC Pro brings a more durable, stable, and smooth system that simply enhances flying."
+			}
+		]
+	},
+	{
+		"_id": 1,
+		"name": "Mavic 3 Classic",
+		"description": "The DJI Air 3 is an advanced all-around drone equipped with dual cameras. It strikes a balance between performance and portability, making it an excellent choice for aerial photography and videography.",
+		"imageUrl": "/images/Mavic 3 Classic.webp",
+		"model": {
+			"url": "/models/Mavic 3 Classic.glb",
+			"position": {
+				"x": 0,
+				"y": 0,
+				"z": 0
+			},
+			"rotation": {
+				"x": -0.06981317007977318,
+				"y": 3.1416,
+				"z": 0
+			},
+			"scale": 7.5,
+			"cameraPosition": {
+				"x": 1.5,
+				"y": 0,
+				"z": 2.8
+			}
+		},
+		"price": 1399,
+		"quantity": 456,
+		"weight": 895,
+		"flightTime": 46,
+		"rating": 3.3,
+		"numberOfReviews": 1205,
+		"numberOfSales": 0,
+		"numberOfOngoingOrders": 6,
+		"series": {
+			"name": "Mavic",
+			"model": "3 Classic",
+			"description": "Aerial Photography"
+		},
+		"features": [
+			{
+				"name": "4/3 CMOS Hasselblad Camera",
+				"imageUrl": "/icons/4 3 CMOS Hasselblad.svg"
+			},
+			{
+				"name": "5.1K HD Video",
+				"imageUrl": "/icons/5.1K HD Video.svg"
+			},
+			{
+				"name": "46-Min Max Flight Time",
+				"imageUrl": "/icons/46m Flight Time.svg"
+			},
+			{
+				"name": "Omnidirectional Obstacle Sensing",
+				"imageUrl": "/icons/Omnidirectional Obstacle Sensing.svg"
+			},
+			{
+				"name": "15km HD Video Transmission",
+				"imageUrl": "/icons/15km Video Transmission.svg"
+			},
+			{
+				"name": "Advanced RTH",
+				"imageUrl": "/icons/advanced RTH.svg"
+			}
+		],
+		"includedItems": [
+			{
+				"name": "DJI Mavic 3 Classic",
+				"quantity": 1,
+				"imageUrl": "/images/DJI Mavic 3 Classic.webp"
+			},
+			{
+				"name": "DJI RC-N1 Remote Controller",
+				"quantity": 1,
+				"imageUrl": "/images/DJI RC-N1 Remote Controller.webp"
+			},
+			{
+				"name": "DJI Mavic 3 Series Intelligent Flight Battery",
+				"quantity": 1,
+				"imageUrl": "/images/Mavic 3 Series Intelligent Flight Battery.webp"
+			},
+			{
+				"name": "DJI Mavic 3 Series Low-Noise Propellers (Pair)",
+				"quantity": 3,
+				"imageUrl": "/images/Mavic 3 Series Low-Noise Propellers (Pair).webp"
+			},
+			{
+				"name": "DJI 65W Portable Charger",
+				"quantity": 1,
+				"imageUrl": "/images/65W Portable Charger.webp"
+			},
+			{
+				"name": "USB 3.0 Type-C Cable",
+				"quantity": 1,
+				"imageUrl": "/images/USB 3.0 Type-C Cable.webp"
+			},
+			{
+				"name": "DJI RC Spare Control Sticks (pair)",
+				"quantity": 1,
+				"imageUrl": "/images/RC Spare Control Sticks (Pair).webp"
+			}
+		],
+		"faqs": [
+			{
+				"question": "Compared to Mavic 2 Pro and DJI Air 2S, what advantages does Mavic 3 Classic have?",
+				"answer": "Mavic 3 Classic is one of DJI’s flagship consumer drones equipped with a specially made Hasselblad camera. It has the following advantages:\n\n1. Increasing flight time by almost 50% compared to Mavic 2 Pro, Mavic 3 Classic delivers up to 46 minutes in the air for care-free creation.\n\n2. Equipped with a professional-grade 4/3 CMOS Hasselblad camera that delivers vivid, natural colors and better performance in low-light environments thanks to a larger image sensor. It also supports up to 5.1K/50fps or 4K/120fps video recording, meeting the needs for both high-resolution and high-frame-rate recording.\n\n3. O3+ transmission technology is used. With a transmission distance of up to 15 km, fly farther and more stably with peace of mind. It can also transmit a 1080p/60fps live feed. This means the camera view is displayed at specifications close to what the camera actually records. It also makes Mavic 3 Classic more responsive to your control.\n\n4. With APAS 5.0, when flying, Mavic 3 Classic continually senses objects in all directions and bypasses them quickly and smoothly. Fly confidently and safely, and create smooth footage even in complicated scenarios.\n\nMavic 3 Classic integrates the cutting-edge technologies of DJI drones to deliver powerful imaging and flight, making it a friendly and useful creative tool for beginners, photography enthusiasts, and pros."
+			},
+			{
+				"question": "What are the advantages of Mavic 3 Classic in photo and video shooting?",
+				"answer": "Mavic 3 Classic is equipped with a professional-grade 4/3 CMOS Hasselblad camera that delivers vivid and accurate Hasselblad color. A large sensor brings imaging quality to an entirely new level. Night Shots mode optimizes video footage in low-light scenarios for cleaner shots. 10-bit D-log video recording is also supported to deliver natural color gradations with more highlight and shadow details retained for greater flexibility when editing."
+			},
+			{
+				"question": "What differentiates Mavic 3 Classic, Mavic 3, and Mavic 3 Cine?",
+				"answer": "Mavic 3 Classic has one 4/3 CMOS Hasselblad camera, and the gimbal does not support gimbal lock.\n\nMavic 3 has two cameras: in addition to a Hasselblad camera, it has a 162mm tele camera, and supports gimbal lock to protect the gimbal.\n\nOn top of these Mavic 3 features, Mavic 3 Cine supports Apple ProRes 422 HQ, Apple ProRes 422, and Apple ProRes 422 LT codecs and comes with a built-in 1TB SSD for high-speed data storage."
+			},
+			{
+				"question": "Compared with DJI RC-N1, what major upgrades does DJI RC have?",
+				"answer": "1. With a built-in 5.5-inch HD display, DJI RC provides crisp viewing even under direct sunlight. With the DJI Fly app pre-installed, it can directly link with your drone after powering on without connecting to a smartphone, allowing you to start shooting right away.\n\n2. Built-in antennas for powerful and compact performance.\n\n3. All-new dual-spring control sticks for a smoother control experience.\n\n4. More customizable button and dial functions for more convenient operation."
+			},
+			{
+				"question": "Compared with the previous generation, what upgrades does the omnidirectional sensing system on the DJI Mavic 3 Series have?",
+				"answer": "The Mavic 3 Series can detect obstacles in all directions with extreme precision. Multiple sensing cameras with a wider range of detection help Mavic 3 respond to obstacles earlier. In a well-lit environment, Mavic 3 can avoid obstacles faster and more smoothly, capturing stable footage safely even when flying laterally or backward."
+			},
+			{
+				"question": "What improvements does ActiveTrack 5.0 have compared with the previous version?",
+				"answer": "ActiveTrack 5.0 tracks subjects in eight directions, bringing more creative possibilities. Embedded with the newest subject recognition technology, ActiveTrack 5.0 uses multiple vision sensors simultaneously to recognize a subject, differentiate it from other objects, and lock the subject in frame. It allows users to adjust tracking angles smoothly for more natural results. Thanks to new environment and subject-sensing algorithms, Mavic 3 responds earlier to subject movements and environment information, and plans a more optimum tracking route in advance to record smooth and stable footage."
+			},
+			{
+				"question": "What improvements does Advanced RTH have compared with the previous version?",
+				"answer": "Compared to the 20 meters of its predecessor, the DJI Mavic 3 Series has a maximum forward-sensing distance of 200 meters during RTH. During flight, Mavic 3 will use advanced environmental sensing technology to determine the safest, most energy-efficient flight route to return the drone to its home point."
+			}
+		]
+	},
+	{
+		"_id": 2,
+		"name": "Air 3",
+		"description": "The DJI Air 3 is a versatile drone featuring a 1/1.3-inch CMOS dual-camera system for 48MP photos and 4K/60fps HDR videos, with a 46-minute max flight time and omnidirectional obstacle sensing for enhanced safety and performance.",
+		"imageUrl": "/images/Air 3.webp",
+		"model": {
+			"url": "/models/Air 3.glb",
+			"position": {
+				"x": 0,
+				"y": 0.45,
+				"z": 0
+			},
+			"rotation": {
+				"x": -0.1,
+				"y": 3.1416,
+				"z": 0
+			},
+			"scale": 0.9,
+			"cameraPosition": {
+				"x": 1.5,
+				"y": 0,
+				"z": 2.8
+			}
+		},
+		"price": 1099,
+		"quantity": 456,
+		"weight": 720,
+		"flightTime": 46,
+		"rating": 2.4,
+		"numberOfReviews": 1205,
+		"numberOfSales": 0,
+		"numberOfOngoingOrders": 6,
+		"series": {
+			"name": "Air",
+			"model": "3",
+			"description": "Aerial Photography"
+		},
+		"features": [
+			{
+				"name": "1/1.3 CMOS Wide-Angle Camera",
+				"imageUrl": "/icons/1 1.3 CMOS Wide-Angle Camera.svg"
+			},
+			{
+				"name": "6000m Max Takeoff Altitude",
+				"imageUrl": "/icons/6000m Max Takeoff.svg"
+			},
+			{
+				"name": "4K/60fps HDR",
+				"imageUrl": "/icons/4k.svg"
+			},
+			{
+				"name": "Omnidirectional Obstacle Sensing",
+				"imageUrl": "/icons/Omnidirectional Obstacle Sensing.svg"
+			},
+			{
+				"name": "20km HD Video Transmission",
+				"imageUrl": "/icons/20km Video Transmission.svg"
+			},
+			{
+				"name": "46-Min Max Flight Time",
+				"imageUrl": "/icons/46m Flight Time.svg"
+			}
+		],
+		"includedItems": [
+			{
+				"name": "DJI Air 3",
+				"quantity": 1,
+				"imageUrl": "/images/DJI Air 3.webp"
+			},
+			{
+				"name": "DJI RC-N2 Remote Controller",
+				"quantity": 1,
+				"imageUrl": "/images/DJI RC-N2 Remote Controller.webp"
+			},
+			{
+				"name": "DJI Air 3 Intelligent Flight Battery",
+				"quantity": 1,
+				"imageUrl": "/images/DJI Air 3 Intelligent Flight Battery.webp"
+			},
+			{
+				"name": "DJI Mavic 3 Series Low-Noise Propellers (Pair)",
+				"quantity": 3,
+				"imageUrl": "/images/Mavic 3 Series Low-Noise Propellers (Pair).webp"
+			},
+			{
+				"name": "USB 3.0 Type-C Cable",
+				"quantity": 1,
+				"imageUrl": "/images/USB 3.0 Type-C Cable.webp"
+			},
+			{
+				"name": "DJI RC Spare Control Sticks (pair)",
+				"quantity": 1,
+				"imageUrl": "/images/RC Spare Control Sticks (Pair).webp"
+			}
+		],
+		"faqs": [
+			{
+				"question": "Compared with DJI Air 2S, what are the main upgrades of DJI Air 3?",
+				"answer": "DJI Air 3 has improved the camera system, video transmission system, vision sensing system, flight time, and intelligent features. Details are as follows:\n\n1. A 1/1.3-inch CMOS 70mm medium tele camera has been added to complement the 1/1.3-inch CMOS 24mm wide-angle camera, delivering consistent image quality* and more dynamic imaging possibilities.\n\n2. The video transmission system has been upgraded to the next-gen O4 HD video transmission system, which not only delivers an FHD video transmission from a max range of 20 km, but also features enhanced anti-interference capabilities, further improving the transmission stability. The remote controller also supports a 1080p/60fps max real-time live feed, with the higher frame rate delivering a smoother viewing experience.\n\n3. Equipped with an omnidirectional vision sensing system, the drone can detect obstacles in all directions. When obstacles are detected, the drone can use APAS 5.0 to perform smoother avoidance movements for a safer overall flight experience.\n\n4. The max hovering time and the max flight time are 42 minutes and 46 minutes respectively, which are 40% and 48% higher than those of DJI Air 2S respectively, allowing you to create with peace of mind.\n\n5. The drone supports Waypoint Flight, Advanced RTH, Cruise Control, QuickTransfer, and other intelligent functions, greatly improving creative efficiency.\n\n* The wide-angle camera and medium tele camera have different apertures."
+			},
+			{
+				"question": "Compared with the O3 video transmission system, what are the upgrades of the O4 video transmission system?",
+				"answer": "The O4 video transmission system adopts an all-new hardware solution. The aircraft antenna system is upgraded from four antennas to six, and a new frequency band* has been added. The communication algorithm has also been upgraded, which not only delivers an FHD video transmission from a max range of 20 km**, but also features enhanced anti-interference capabilities, further improving the transmission stability in complex environments like urban settings. The remote controller also supports a 1080p/60fps max real-time live feed, with the higher frame rate delivering a smoother viewing experience.\n\n* Can be used only in countries and regions where it is allowed by local laws and regulations.\n\n** Measured in an open outdoor environment without interference and with FCC compliance. The above data shows the farthest communication range for one-way, non-return flights. Always pay attention to reminders in the app during your flight."
+			},
+			{
+				"question": "Compared with DJI RC-N2, what are the advantages of DJI RC 2? How should I choose?",
+				"answer": "When using DJI RC-N2, you need to connect your smartphone and download the DJI Fly app. DJI RC 2 comes with a 5.5-inch 1080p FHD screen with a brightness of up to 700 nits, delivering a better outdoor viewing experience. Additionally, with the DJI Fly app pre-installed, you can enjoy immediate use after powering on without connecting to your smartphone, facilitating concentrated and efficient creation."
+			},
+			{
+				"question": "Compared with the DJI RC-N1 Remote Controller, what are the upgrades of the DJI RC-N2 Remote Controller?",
+				"answer": "The video transmission solution has been upgraded, and the antenna system is upgraded from 1T2R to 2T2R. With DJI Air 3, the O4 video transmission can be used."
+			},
+			{
+				"question": "Compared with DJI RC, what are the upgrades of DJI RC 2?",
+				"answer": "The performance of the processor is improved for smoother operation. The video transmission solution has been upgraded, and the antenna system has been upgraded from 1T2R to 2T4R. With DJI Air 3, O4 video transmission can be used. DJI RC 2 features two built-in antennas and two external antennas, and also allows angle adjustments for the external dual antennas to achieve better video transmission effects."
+			},
+			{
+				"question": "Does DJI Air 3 support vertical shooting?",
+				"answer": "Both the wide-angle camera and medium tele camera support vertical shooting (9:16), and the max shooting specification is 2.7K/60fps."
+			},
+			{
+				"question": "Does DJI Air 3 support shooting D-Log M and HLG videos?",
+				"answer": "Both the wide-angle camera and medium tele camera support shooting 10-bit D-Log M and 10-bit HLG videos. 10-bit D-Log M mode facilitates more flexible color grading in post-production, and 10-bit HLG mode can achieve previews with higher dynamic range (requires equipment that supports HDR display)."
+			}
+		]
+	},
+	{
+		"_id": 3,
+		"name": "Air 2S",
+		"description": "The DJI Air 2S is a high-performance drone featuring a 1-inch CMOS sensor for superior image quality, 5.4K video capabilities, and advanced obstacle sensing with APAS 4.0, all in a compact design weighing less than 600g1. It offers innovative features like MasterShots for automatic cinematic shots and O3 transmission technology for smooth, reliable feeds up to 12 km away.",
+		"imageUrl": "/images/Air 2S.webp",
+		"model": {
+			"url": "/models/Air 2S.glb",
+			"position": {
+				"x": 0,
+				"y": 0.2,
+				"z": 0
+			},
+			"rotation": {
+				"x": -0.025,
+				"y": 0,
+				"z": 0
+			},
+			"scale": 0.005,
+			"cameraPosition": {
+				"x": 1.5,
+				"y": 0,
+				"z": 2.8
+			}
+		},
+		"price": 999,
+		"quantity": 456,
+		"weight": 595,
+		"flightTime": 31,
+		"rating": 4.7,
+		"numberOfReviews": 1205,
+		"numberOfSales": 0,
+		"numberOfOngoingOrders": 6,
+		"series": {
+			"name": "Air",
+			"model": "2S",
+			"description": "Aerial Photography"
+		},
+		"features": [
+			{
+				"name": "1/1.3 CMOS Wide-Angle Camera",
+				"imageUrl": "/icons/1-inch CMOS Sensor.svg"
+			},
+			{
+				"name": "MasterShots",
+				"imageUrl": "/icons/MasterShots.svg"
+			},
+			{
+				"name": "5.4K Video",
+				"imageUrl": "/icons/5.4K Video.svg"
+			},
+			{
+				"name": "Obstacle Sensing in 4 Directions",
+				"imageUrl": "/icons/Omnidirectional Obstacle Sensing.svg"
+			},
+			{
+				"name": "12km HD Video Transmission",
+				"imageUrl": "/icons/12km Video Transmission.svg"
+			},
+			{
+				"name": "ADS-B",
+				"imageUrl": "/icons/ADS-B.svg"
+			}
+		],
+		"includedItems": [
+			{
+				"name": "Aircraft",
+				"quantity": 1,
+				"imageUrl": "/images/Aircraft.webp"
+			},
+			{
+				"name": "DJI RC-N1 Remote Controller",
+				"quantity": 1,
+				"imageUrl": "/images/DJI RC-N1 Remote Controller.webp"
+			},
+			{
+				"name": "Intelligent Flight Battery",
+				"quantity": 1,
+				"imageUrl": "/images/Intelligent Flight Battery.webp"
+			},
+			{
+				"name": "Low-Noise Propellers (Pair)",
+				"quantity": 3,
+				"imageUrl": "/images/Mavic 3 Series Low-Noise Propellers (Pair).webp"
+			},
+			{
+				"name": "USB 3.0 Type-C Cable",
+				"quantity": 1,
+				"imageUrl": "/images/USB 3.0 Type-C Cable.webp"
+			},
+			{
+				"name": "DJI RC Spare Control Sticks (pair)",
+				"quantity": 1,
+				"imageUrl": "/images/RC Spare Control Sticks (Pair).webp"
+			}
+		],
+		"faqs": [
+			{
+				"question": "What are the main differences between DJI Air 2S and Mavic Air 2?",
+				"answer": "The camera performance, intelligent features, obstacle sensing system, and transmission system have all improved significantly. Upgrades include a 1-inch CMOS sensor, four-antenna low-latency transmission, APAS 4.0, added upward-facing dual-vision sensors, and MasterShots."
+			},
+			{
+				"question": "Is the DJI Air 2S Fly More Combo worth it?",
+				"answer": "For a small additional cost, the DJI Air 2S Fly More Combo includes some must-have DJI Air 2S accessories that will make flying easier and more enjoyable. This combo includes two extra Intelligent Flight Batteries, a Battery Charging Hub, and a Battery to Power Bank Adapter, providing longer flight time and higher charging efficiency. It also comes with a shoulder bag, an ND Filters Set (ND4/8/16/32), and three spare pairs of Low-Noise Propellers. Purchasing the DJI Air 2S Fly More Combo is significantly cheaper than purchasing the drone and these accessories separately."
+			},
+			{
+				"question": "Is DJI Air 2S compatible with Mavic Air 2's accessories?",
+				"answer": "With the exception of the ND filters set and gimbal protector, DJI Air 2S is compatible with most of Mavic Air 2’s key accessories, including the intelligent flight battery, battery charging hub, low-noise propellers, and shoulder bag."
+			},
+			{
+				"question": "Is DJI Air 2S compatible with the DJI Smart Controller?",
+				"answer": "Yes. The DJI Smart Controller is designed to maximize your outdoor flying experience. It comes with a built-in 5.5-inch 1080p screen, providing an ultra-bright display to keep your live feeds easily viewable, even in direct sunlight. The DJI Smart Controller's customized Android system and optimized DJI GO 4 and DJI Fly apps give you freedom from the restraints of conventional mobile devices to ensure faster, focused aerial creation. The Smart Controller also supports third-party apps for a variety of additional sharing and editing options."
+			},
+			{
+				"question": "What are the advantages of the 1-inch sensor camera on DJI Air 2S?",
+				"answer": "DJI Air 2S features a 1-inch CMOS sensor, offering exceptional exposure sensitivity and dynamic range. A bigger sensor means the camera can collect more visual information, resulting in images and footage with stunningly rich detail. DJI Air 2S can also capture up to 12.6 stops in RAW, providing more details on highlights and shadows. This also allows more room for editing in post. A big sensor usually means a larger, heavier drone, but not with DJI Air 2S. DJI Air 2S still weighs less than 600g, making it the ideal choice for aerial photography on the go."
+			},
+			{
+				"question": "What app do I need for DJI Air 2S?",
+				"answer": "DJI Air 2S can only be used with the DJI Fly app. In addition to offering a streamlined user experience, the DJI Fly app contains flight tutorials so you can learn how to fly safely. To download the DJI Fly app, visit the official download page of DJI Air 2S."
+			}
+		]
+	},
+	{
+		"_id": 4,
+		"name": "Mini 4 Pro",
+		"description": "The DJI Mini 4 Pro is a lightweight drone under 249g with advanced features like 4K/60fps HDR video, omnidirectional obstacle sensing, and up to 45 minutes of flight time, designed for easy portability and enhanced aerial photography.",
+		"imageUrl": "/images/Mini 4 Pro.webp",
+		"model": {
+			"url": "/models/Mini 4 Pro.glb",
+			"position": {
+				"x": 0,
+				"y": 0.14,
+				"z": 0
+			},
+			"scale": 0.125,
+			"rotation": {
+				"x": -0.225,
+				"y": 3.1416,
+				"z": 0
+			},
+			"cameraPosition": {
+				"x": 1.5,
+				"y": 0.1,
+				"z": 2.8
+			}
+		},
+		"price": 959,
+		"quantity": 1043,
+		"weight": 249,
+		"flightTime": 45,
+		"rating": 4.9,
+		"numberOfReviews": 9465,
+		"numberOfSales": 0,
+		"numberOfOngoingOrders": 6,
+		"series": {
+			"name": "Mini",
+			"model": "4 Pro",
+			"description": "Aerial Photography"
+		},
+		"features": [
+			{
+				"name": "Under 249 g",
+				"imageUrl": "/icons/249 g.svg"
+			},
+			{
+				"name": "1/1.3-inch CMOS Wide-Angle Camera",
+				"imageUrl": "/icons/1 1.3 CMOS  Camera.svg"
+			},
+			{
+				"name": "4K/60fps HDR",
+				"imageUrl": "/icons/4k.svg"
+			},
+			{
+				"name": "10-bit D-Log M, HLG",
+				"imageUrl": "/icons/10-bit D-Log M.svg"
+			},
+			{
+				"name": "Omnidirectional Obstacle Sensing",
+				"imageUrl": "/icons/Omnidirectional Obstacle Sensing.svg"
+			},
+			{
+				"name": "20km HD Video Transmission",
+				"imageUrl": "/icons/20km Video Transmission.svg"
+			}
+		],
+		"includedItems": [
+			{
+				"name": "DJI Mini 4 Pro",
+				"quantity": 1,
+				"imageUrl": "/images/DJI Mini 4 Pro.webp"
+			},
+			{
+				"name": "DJI RC-N2 Remote Controller",
+				"quantity": 1,
+				"imageUrl": "/images/DJI RC-N2 Remote Controller.webp"
+			},
+			{
+				"name": "Intelligent Flight Battery",
+				"quantity": 1,
+				"imageUrl": "/images/Intelligent Flight Battery.webp"
+			},
+			{
+				"name": "Spare Propellers (Pair)",
+				"quantity": 3,
+				"imageUrl": "/images/Spare Propellers (Pair).webp"
+			},
+			{
+				"name": "USB 3.0 Type-C Cable",
+				"quantity": 1,
+				"imageUrl": "/images/USB 3.0 Type-C Cable.webp"
+			},
+			{
+				"name": "DJI RC Spare Control Sticks (pair)",
+				"quantity": 1,
+				"imageUrl": "/images/RC Spare Control Sticks (Pair).webp"
+			},
+			{
+				"name": "Propeller Holder",
+				"quantity": 1,
+				"imageUrl": "/images/Propeller Holder.webp"
+			}
+		],
+		"faqs": [
+			{
+				"question": "Compared with DJI Mini 3 Pro, what has been upgraded on DJI Mini 4 Pro?",
+				"answer": "DJI Mini 4 Pro features comprehensive upgrades in its vision sensing system, imaging system, video transmission system, and intelligent features.\n\nDetails are as follows: While maintaining a 249g lightweight design, DJI Mini 4 Pro boasts an omnidirectional vision sensing system to achieve omnidirectional obstacle sensing. It uses a new image-processing platform and supports recording 4K/60fps HDR videos, with optional 10-bit D-Log M and HLG color modes, elevating multiple shooting specifications. It is equipped with the DJI O4 FHD digital video transmission system, which provides a max transmission distance of up to 20 km*. It comes with the newly upgraded ActiveTrack 360°, Waypoint Flight, Advanced RTH, Cruise Control, and other intelligent features.\n\nData tested under FCC standard in an unobstructed environment without interference. Used for reference purposes only and provides no guarantee for actual transmission distance."
+			},
+			{
+				"question": "Compared with DJI Mini 3 Pro, what are the upgrades in the camera module of DJI Mini 4 Pro?",
+				"answer": "Compared with the camera module of DJI Mini 3 Pro, DJI Mini 4 Pro has the following major upgrades:\n\n1. A new image-processing platform is used to improve the overall imaging performance.\n\n2. The HDR video specification has been upgraded from 4K/30fps to 4K/60fps.\n\n3. The Slow Motion specification has been upgraded from 1080p to 4K.\n\n4. The new 10-bit D-Log M and HLG color modes record colors and details with a high dynamic range.\n\n5. The new Night video mode (Night Shots) delivers enhanced low-light performance.\n\n6. The simulated long exposure (shutter speed of up to 8 s) enables more creative possibilities.\n\n7. A next-gen SmartPhoto algorithm is adopted to effectively improve photo quality.\n\n8. The resolution of panorama photos is higher."
+			},
+			{
+				"question": "Compared with the O3 video transmission system, what are the upgrades of the O4 video transmission system?",
+				"answer": "The O4 video transmission system adopts an all-new hardware solution, and a new frequency band* has been added. The communication algorithm has also been upgraded, which not only delivers an FHD video transmission from a max range of 20 km**, but also features enhanced anti-interference capabilities, further improving the transmission stability in complex environments like urban settings. The remote controller also supports a 1080p/60fps max real-time live feed, with the higher frame rate delivering a smoother viewing experience.\n\n* Can be used only in countries and regions where it is allowed by local laws and regulations.\n\n** Measured in an outdoor, open environment, without interference, and with FCC compliance. The above data shows the farthest communication range for one-way, non-return flights. Always pay attention to reminders in the app during your flight."
+			},
+			{
+				"question": "Does DJI Mini 4 Pro support manual mode for shooting photos and videos?",
+				"answer": "Yes. You can manually set camera parameters like shutter speed, ISO, and white balance in the DJI Fly app."
+			},
+			{
+				"question": "What is the wind speed resistance of DJI Mini 4 Pro?",
+				"answer": "The max wind speed resistance of DJI Mini 4 Pro is 10.7 m/s.\n\nWind resistance is dependent upon propulsion. In strong winds, slight vibration is expected due to the drone’s lightweight nature. High-powered propulsion ensures the drone hovers stably or returns to home safely. DJI Mini 4 Pro automatically controls the gimbal to adjust slightly to ensure the footage is always stable and not affected by the wind."
+			}
+		]
+	},
+	{
+		"_id": 5,
+		"name": "Mini 3 Pro",
+		"description": "The DJI Mini 3 Pro is a compact and powerful drone featuring tri-directional obstacle sensing, up to 38 minutes of flight time, and a 1/1.3-inch sensor for superior image quality with 4K/60fps video capabilities. It's designed for portability and ease of use, with intelligent flight modes and enhanced transmission technology.",
+		"imageUrl": "/images/Mini 3 Pro.webp",
+		"model": {
+			"url": "/models/Mini 4 Pro.glb",
+			"position": {
+				"x": 0,
+				"y": 0.14,
+				"z": 0
+			},
+			"scale": 0.125,
+			"rotation": {
+				"x": -0.225,
+				"y": 3.1416,
+				"z": 0
+			},
+			"cameraPosition": {
+				"x": 1.5,
+				"y": 0.1,
+				"z": 2.8
+			}
+		},
+		"price": 599,
+		"quantity": 1043,
+		"weight": 249,
+		"flightTime": 47,
+		"rating": 4.2,
+		"numberOfReviews": 9465,
+		"numberOfSales": 0,
+		"numberOfOngoingOrders": 6,
+		"series": {
+			"name": "Mini",
+			"model": "3 Pro",
+			"description": "Aerial Photography"
+		},
+		"features": [
+			{
+				"name": "Under 249 g",
+				"imageUrl": "/icons/249 g.svg"
+			},
+			{
+				"name": "Tri-Directional Obstacle Sensing",
+				"imageUrl": "/icons/Omnidirectional Obstacle Sensing.svg"
+			},
+			{
+				"name": "4K HDR Video",
+				"imageUrl": "/icons/4k.svg"
+			},
+			{
+				"name": "Extended Battery",
+				"imageUrl": "/icons/Extended Battery.svg"
+			},
+
+			{
+				"name": "True Vertical Shooting",
+				"imageUrl": "/icons/True Vertical.svg"
+			},
+
+			{
+				"name": "FocusTrack",
+				"imageUrl": "/icons/FocusTrack.svg"
+			}
+		],
+		"includedItems": [
+			{
+				"name": "DJI Mini 3 Pro",
+				"quantity": 1,
+				"imageUrl": "/images/DJI Mini 4 Pro.webp"
+			},
+			{
+				"name": "DJI RC-N1 Remote Controller",
+				"quantity": 1,
+				"imageUrl": "/images/DJI RC-N1 Remote Controller.webp"
+			},
+			{
+				"name": "DJI Mini 3 Pro Intelligent Flight Battery",
+				"quantity": 1,
+				"imageUrl": "/images/DJI Mini 3 Pro Intelligent Flight Battery.webp"
+			},
+			{
+				"name": "Spare Propellers (Pair)",
+				"quantity": 3,
+				"imageUrl": "/images/Spare Propellers (Pair).webp"
+			},
+			{
+				"name": "USB 3.0 Type-C Cable",
+				"quantity": 1,
+				"imageUrl": "/images/USB 3.0 Type-C Cable.webp"
+			},
+			{
+				"name": "DJI RC Spare Control Sticks (pair)",
+				"quantity": 1,
+				"imageUrl": "/images/RC Spare Control Sticks (Pair).webp"
+			},
+			{
+				"name": "Gimbal Protector",
+				"quantity": 1,
+				"imageUrl": "/images/Gimbal Protector.webp"
+			}
+		],
+		"faqs": [
+			{
+				"question": "Compared with previous products, what upgrades does DJI Mini 3 Pro have?",
+				"answer": "Compared with DJI Mini 2 and Mavic Air 2, DJI Mini 3 Pro has improved battery life, intelligent features, video transmission, and a fully upgraded imaging system and visual sensing system.\n\nSpecifically: Inheriting the 249 g light and compact body, DJI Mini 3 Pro comes with a 1/1.3-inch image sensor that supports native HDR. It supports three-directional obstacle sensing and the newly upgraded APAS 4.0 (Advanced Pilot Assistance Systems). It supports DJI O3 FHD digital video transmission, ensuring a stable live feed at distances of up to 12 km. DJI Mini 3 Pro also supports intelligent features like FocusTrack, True Vertical Shooting, Timelapse, MasterShots, and High-Speed QuickTransfer."
+			},
+			{
+				"question": "What are the differences among DJI Mini 3 Pro (No RC), DJI Mini 3 Pro, and DJI Mini 3 Pro (DJI RC)?",
+				"answer": "DJI Mini 3 Pro (No RC) does not include a remote controller. You can use the DJI RC-N1 that you already own. DJI Mini 3 Pro Includes DJI RC-N1. DJI Mini 3 Pro (DJI RC) includes the all-new DJI RC, which has a built-in 5.5-inch 1080p HD display specially made for outdoor scenarios, providing crisp viewing even under direct sunlight. It comes with the DJI Fly app pre-installed for control over your aerial photography."
+			},
+			{
+				"question": "Why does DJI Mini 3 Pro have an all-new look?",
+				"answer": "DJI Mini 3 adopts a redesigned structure and form, bringing the following advantages:\n\n1. Longer flight time at the same compact size: The new form and design allow the drone to carry larger propellers and improve the propulsion efficiency of the propellers and the aircraft, bringing longer flight time.\n\n2. Broader environment sensing range: The new design enables the drone to carry sensors with a larger FOV, further increasing the sensing range and distance. DJI Mini 3 Pro thus provides more powerful visual sensing capabilities, improving flexibility and safety during flight and obstacle avoidance.\n\n3. True Vertical Shooting and expanded axes: The new design allows users to get portrait shots without the need for digital cropping. Fewer gimbal limits mean more shooting angles and added creative freedom. During high-speed flight, the aircraft angle also has fewer restrictions on the gimbal and the shooting angle."
+			},
+			{
+				"question": "Can I use other USB-C chargers to charge DJI Mini 3 Pro?",
+				"answer": "Yes. To ensure charging speed, we recommend you to use the DJI 30W USB-C Charger or other USB Power Delivery chargers."
+			},
+			{
+				"question": "What is the wind speed resistance of DJI Mini 3 Pro?",
+				"answer": "The max wind speed resistance of DJI Mini 3 Pro is 10.7 m/s (Level 5).\n\n* Wind resistance is dependent upon propulsion. Under strong winds, due to the lightweight nature of the drone, slight vibration is expected. High-powered propulsion ensures the drone hovers stably or returns to home safely. DJI Mini 3 Pro automatically controls the gimbal to adjust slightly to ensure that the footage is always stable and not affected by the wind."
+			},
+			{
+				"question": "Does DJI Mini 3 Pro support Manual mode for shooting photos and video?",
+				"answer": "Yes. You can manually set camera parameters like shutter speed, ISO, and white balance in the DJI Fly app."
+			},
+			{
+				"question": "What DJI Mini 2 accessories can be used with DJI Mini 3 Pro?",
+				"answer": "DJI Mini 3 Pro is compatible with DJI 18W USB Charger and DJI RC-N1 and its related accessories (DJI RC-N1 RC Cable, DJI RC-N1 Remote Controller Monitor Hood, DJI RC-N1 Remote Controller Tablet Holder, and DJI RC-N1 Control Sticks). Other DJI Mini 2 accessories are not compatible with DJI Mini 3 Pro."
+			}
+		]
+	},
+	{
+		"_id": 6,
+		"name": "Mini 3",
+		"description": "The DJI Mini 3 is a compact and lightweight drone under 249 g, featuring a 1/1.3-inch sensor for 4K HDR video, extended flight time up to 51 minutes, and enhanced wind resistance up to 10.7 m/s¹[1]. It offers True Vertical Shooting, intelligent flight modes, and is compatible with a range of accessories for versatile aerial photography.",
+		"imageUrl": "/images/Mini 3.webp",
+		"model": {
+			"url": "/models/Mini 3.glb",
+			"position": {
+				"x": 0,
+				"y": -0.03,
+				"z": -0.6
+			},
+			"scale": 1.15,
+			"rotation": {
+				"x": -0.2,
+				"y": 3.1416,
+				"z": 0
+			},
+			"cameraPosition": {
+				"x": 1.5,
+				"y": 0.1,
+				"z": 2.8
+			}
+		},
+		"price": 469,
+		"quantity": 1043,
+		"weight": 249,
+		"flightTime": 51,
+		"rating": 5.0,
+		"numberOfReviews": 4167,
+		"numberOfSales": 0,
+		"numberOfOngoingOrders": 6,
+		"series": {
+			"name": "Mini",
+			"model": "3",
+			"description": "Aerial Photography"
+		},
+		"features": [
+			{
+				"name": "Under 249 g",
+				"imageUrl": "/icons/249 g.svg"
+			},
+			{
+				"name": "Extended Battery",
+				"imageUrl": "/icons/Extended Battery.svg"
+			},
+			{
+				"name": "4K HDR Video",
+				"imageUrl": "/icons/4k.svg"
+			},
+			{
+				"name": "True Vertical Shooting",
+				"imageUrl": "/icons/True Vertical.svg"
+			},
+			{
+				"name": "Intelligent Features",
+				"imageUrl": "/icons/Intelligent Features.svg"
+			},
+
+			{
+				"name": "38kph (Level 5) Wind Resistance",
+				"imageUrl": "/icons/Wind Resistance.svg"
+			}
+		],
+		"includedItems": [
+			{
+				"name": "DJI Mini 3",
+				"quantity": 1,
+				"imageUrl": "/images/DJI Air 3.webp"
+			},
+			{
+				"name": "DJI RC-N2 Remote Controller",
+				"quantity": 1,
+				"imageUrl": "/images/DJI RC-N2 Remote Controller.webp"
+			},
+			{
+				"name": "DJI Mini 3 Intelligent Flight Battery",
+				"quantity": 1,
+				"imageUrl": "/images/DJI Air 3 Intelligent Flight Battery.webp"
+			},
+			{
+				"name": "DJI Mini 3 Series Low-Noise Propellers (Pair)",
+				"quantity": 3,
+				"imageUrl": "/images/Mavic 3 Series Low-Noise Propellers (Pair).webp"
+			},
+			{
+				"name": "USB 3.0 Type-C Cable",
+				"quantity": 1,
+				"imageUrl": "/images/USB 3.0 Type-C Cable.webp"
+			},
+			{
+				"name": "DJI RC Spare Control Sticks (pair)",
+				"quantity": 1,
+				"imageUrl": "/images/RC Spare Control Sticks (Pair).webp"
+			}
+		],
+		"faqs": [
+			{
+				"question": "Compared with DJI Mini 2, what upgrades does DJI Mini 3 have?",
+				"answer": "Compared with DJI Mini 2, DJI Mini 3 has comprehensively improved the imaging system, battery life, and other aspects: With a lightweight and compact body under 249 g, DJI Mini 3 features a 1/1.3-inch image sensor that supports dual native ISO and chip-level HDR technology and supports shooting 4K HDR video. The new gimbal design allows for True Vertical Shooting and large-angle tilt."
+			},
+			{
+				"question": "Compared with DJI Mini 2, what design upgrades does DJI Mini 3's have?",
+				"answer": "The design of DJI Mini 3 has the following advantages:\n\n1. Longer flight time at the same compact size: DJI Mini 3's design allows the drone to carry larger propellers and improves the propulsion efficiency of the propellers and aircraft, providing longer flight time.\n\n2. True Vertical Shooting and expanded axes: The new design allows users to get portrait shots without needing to crop digitally. A larger gimbal range means more shooting angles and added creative freedom."
+			},
+			{
+				"question": "As an entry-level drone, how is the camera performance of DJI Mini 3?",
+				"answer": "DJI Mini 3 combines powerful imaging performance with intelligent features, allowing even beginners to create cinematic footage effortlessly. It is equipped with a 1/1.3-inch sensor, 2.4μm (4-in-1) large pixels, an f/1.7 aperture, dual native ISO, chip-level HDR technology, and can record 4K HDR videos. It also supports QuickShots (Dronie/Circle/Helix/Rocket/Boomerang) and True Vertical Shooting."
+			},
+			{
+				"question": "What is the wind speed resistance of DJI Mini 3?",
+				"answer": "The max wind speed resistance of DJI Mini 3 is 10.7 m/s (Level 5). The drone can hover steadily and keep the image stable at wind speeds up to 10.7 m/s (Level 5). It can detect the wind speed in real-time and notify users to return if there are strong winds.\n\n* Wind resistance is dependent upon propulsion. With strong winds, slight vibration is expected due to the lightweight nature of the drone. High-powered propulsion ensures the drone hovers stably or returns home safely. DJI Mini 3 automatically controls the gimbal to make slight adjustments to ensure that the footage is always stable and not affected by the wind."
+			},
+			{
+				"question": "What microSD cards does DJI Mini 3 support?",
+				"answer": "Recommended models:\n\n- SanDisk Extreme 32GB V30 A1 microSDXC\n- SanDisk Extreme 64GB V30 A1 microSDXC\n- SanDisk Extreme 128GB V30 A2 microSDXC\n- SanDisk Extreme 256GB V30 A2 microSDXC\n- SanDisk Extreme Pro 32GB V30 A1 microSDXC\n- Kingston Canvas Go!Plus 64GB V30 A2 microSDXC\n- Kingston Canvas Go!Plus 256GB V30 A2 microSDXC\n- Kingston Canvas React Plus 64GB V30 A1 microSDXC\n- Kingston Canvas React Plus 128GB V30 A1 microSDXC\n- Samsung PRO Plus 256GB V30 A2 microSDXC"
+			}
+		]
+	},
+	{
+		"_id": 7,
+		"name": "FPV",
+		"description": "The DJI FPV is a fully-assembled drone that offers an immersive flying experience with 4K/60fps video, a super-wide 150° FOV, and advanced safety features like Emergency Brake and Hover. It's designed for high-speed and agile maneuvering, making it suitable for both beginners and experienced pilots.",
+		"imageUrl": "/images/FPV.webp",
+		"model": {
+			"url": "/models/FPV.glb",
+			"position": {
+				"x": 0,
+				"y": -0.25,
+				"z": 0
+			},
+			"scale": 0.01,
+			"rotation": {
+				"x": -0.475,
+				"y": 0,
+				"z": 0
+			},
+			"cameraPosition": {
+				"x": 1.5,
+				"y": 0.1,
+				"z": 2.8
+			}
+		},
+		"price": 999,
+		"quantity": 46691,
+		"weight": 795,
+		"flightTime": 20,
+		"rating": 3.1,
+		"numberOfReviews": 4167,
+		"numberOfSales": 0,
+		"numberOfOngoingOrders": 6,
+		"series": {
+			"name": "FPV",
+			"model": "",
+			"description": "Immersive Flight Experience"
+		},
+		"features": [
+			{
+				"name": "low-latency video transmission.",
+				"imageUrl": "/icons/28ms-range.svg"
+			},
+			{
+				"name": "Image quality for the DJI FPV Goggles.",
+				"imageUrl": "/icons/720 quality.svg"
+			},
+			{
+				"name": "can be flown simultaneously.",
+				"imageUrl": "/icons/8 drones.svg"
+			},
+			{
+				"name": "video recorded by the DJI FPV Air Unit.",
+				"imageUrl": "/icons/1080 video.svg"
+			},
+			{
+				"name": "low-latency transmission.",
+				"imageUrl": "/icons/7ms.svg"
+			},
+
+			{
+				"name": "integrated control for the DJI FPV RC.",
+				"imageUrl": "/icons/4 in 1.svg"
+			}
+		],
+		"includedItems": [
+			{
+				"name": "DJI FPV ",
+				"quantity": 1,
+				"imageUrl": "/images/DJI Mavic 3 Classic.webp"
+			},
+			{
+				"name": "DJI RC-N1 Remote Controller",
+				"quantity": 1,
+				"imageUrl": "/images/DJI RC-N1 Remote Controller.webp"
+			},
+			{
+				"name": "DJI FPV Series Intelligent Flight Battery",
+				"quantity": 1,
+				"imageUrl": "/images/Mavic 3 Series Intelligent Flight Battery.webp"
+			},
+			{
+				"name": "DJI FPV Series Low-Noise Propellers (Pair)",
+				"quantity": 3,
+				"imageUrl": "/images/Mavic 3 Series Low-Noise Propellers (Pair).webp"
+			},
+			{
+				"name": "DJI 65W Portable Charger",
+				"quantity": 1,
+				"imageUrl": "/images/65W Portable Charger.webp"
+			},
+			{
+				"name": "USB 3.0 Type-C Cable",
+				"quantity": 1,
+				"imageUrl": "/images/USB 3.0 Type-C Cable.webp"
+			},
+			{
+				"name": "DJI RC Spare Control Sticks (pair)",
+				"quantity": 1,
+				"imageUrl": "/images/RC Spare Control Sticks (Pair).webp"
+			}
+		],
+		"faqs": [
+			{
+				"question": "What’s the difference between DJI FPV and traditional drones?",
+				"answer": "Generally speaking, FPV drones differ from traditional drones in two major ways. The first is the immersive flight experience provided by the goggles. The second big difference is the flight itself. Compared to most camera drones, FPV drones typically allow for much higher speeds and limitless maneuvering capabilities with no angle limits on any of the axes. Because of this, FPV drones have typically required a much higher level of skill to fly."
+			},
+			{
+				"question": "What is the difference between DJI FPV and traditional racing drones?",
+				"answer": "DJI FPV has a built-in imaging system, high-definition, low-latency transmission with a range of up to 10 km, and a battery life of approximately 20 minutes. The integrated, ready-to-fly design means users don’t need to assemble the drone themselves. DJI FPV is also equipped with advanced safety features such as emergency brake hovering, intelligent return to home, and DJI Care Refresh service for added flight protection and greater peace of mind during flight."
+			},
+			{
+				"question": "Is the DJI FPV Combo worth it?",
+				"answer": "The DJI FPV Combo comes with everything you need to start flying. It includes the FPV Drone, Goggles V2, Remote Controller 2, DJI FPV Intelligent Flight Battery, DJI FPV Goggles Battery, DJI FPV AC Power Adapter, DJI FPV Propellers, and other related cables and accessories. For anyone interested in diving into the world of FPV flight, it’s the perfect way to do so."
+			},
+			{
+				"question": "Do I need to assemble the DJI FPV drone myself?",
+				"answer": "No. Like many previous DJI drones, DJI FPV doesn’t require any assembly. Simply open the box, install the propellers and battery, and DJI FPV is ready to fly. However, DJI FPV does have a modular design with easily replaceable parts. Users can replace the top cover, gimbal camera, and landing gear if any of these parts become damaged."
+			},
+			{
+				"question": "Does DJI FPV support obstacle detection and avoidance?",
+				"answer": "The DJI FPV aircraft comes with forward and downward vision sensors that can automatically detect objects and decelerate when flying in N mode. However, there is no automatic avoidance function. When obstacles are detected, the aircraft will slow down but will not stop completely unless controlled to do so by the pilot."
+			}
+		]
+	},
+	{
+		"_id": 8,
+		"name": "Inspire 3",
+		"description": "The DJI Inspire 3 is a state-of-the-art drone featuring an 8K sensor for high-quality aerial cinematography and advanced flight capabilities, including 360° pan and tilt boost, centimeter-level RTK positioning, and a new O3 Pro video transmission system for enhanced stability and live feed quality.",
+		"imageUrl": "/images/Inspire 3.webp",
+		"model": {
+			"url": "/models/Inspire 3.glb",
+			"position": {
+				"x": 0,
+				"y": 0.6,
+				"z": 0
+			},
+			"scale": 5,
+			"rotation": {
+				"x": -0.33,
+				"y": 0,
+				"z": 0
+			},
+			"cameraPosition": {
+				"x": 1.5,
+				"y": 0.1,
+				"z": 2.8
+			}
+		},
+		"price": 16499,
+		"quantity": 132,
+		"weight": 3995,
+		"flightTime": 28,
+		"rating": 4.3,
+		"numberOfReviews": 155,
+		"numberOfSales": 0,
+		"numberOfOngoingOrders": 6,
+		"series": {
+			"name": "Inspire",
+			"model": "3",
+			"description": "Aerial Cinematic Tools"
+		},
+		"features": [
+			{
+				"name": "1/1.8 CMOS Wide-Angle Camera",
+				"imageUrl": "/icons/1 1.8 CMOS  Camera.svg"
+			},
+
+			{
+				"name": "Omnidirectional Obstacle Sensing",
+				"imageUrl": "/icons/Omnidirectional Obstacle Sensing.svg"
+			},
+			{
+				"name": "15km HD Video Transmission",
+				"imageUrl": "/icons/15km Video Transmission.svg"
+			},
+			{
+				"name": "Waypoint Pro: Repeatable Routes, 3D Dolly",
+				"imageUrl": "/icons/Waypoint Pro.svg"
+			},
+
+			{
+				"name": "80° Tilt Boost 360° Pan",
+				"imageUrl": "/icons/tilt80.svg"
+			},
+			{
+				"name": "4K/30fps HDR Video",
+				"imageUrl": "/icons/4k.svg"
+			}
+		],
+		"includedItems": [
+			{
+				"name": "DJI Inspire 3",
+				"quantity": 1,
+				"imageUrl": "/images/DJI Mini 4 Pro.webp"
+			},
+			{
+				"name": "DJI RC-N2 Remote Controller",
+				"quantity": 1,
+				"imageUrl": "/images/DJI RC-N2 Remote Controller.webp"
+			},
+			{
+				"name": "Intelligent Flight Battery",
+				"quantity": 1,
+				"imageUrl": "/images/Intelligent Flight Battery.webp"
+			},
+			{
+				"name": "Spare Propellers (Pair)",
+				"quantity": 3,
+				"imageUrl": "/images/Spare Propellers (Pair).webp"
+			},
+			{
+				"name": "USB 3.0 Type-C Cable",
+				"quantity": 1,
+				"imageUrl": "/images/USB 3.0 Type-C Cable.webp"
+			},
+			{
+				"name": "DJI RC Spare Control Sticks (pair)",
+				"quantity": 1,
+				"imageUrl": "/images/RC Spare Control Sticks (Pair).webp"
+			},
+			{
+				"name": "Propeller Holder",
+				"quantity": 1,
+				"imageUrl": "/images/Propeller Holder.webp"
+			}
+		],
+		"faqs": [
+			{
+				"question": "Can I use DJI Inspire 3 with the X9 gimbal camera, TB50 battery, and storage card of DJI Ronin 4D interchangeably?",
+				"answer": "The gimbal camera and TB50 battery are not interchangeable. The storage card is interchangeable.\n\nTo improve DJI Inspire 3’s battery life, flight experience, and performance and stability at all attitudes and speeds, Inspire 3’s X9-8K Air gimbal camera has been optimized specially for aerial photography. Compared with the X9-6K and X9-8K gimbal cameras of Ronin 4D, the X9-8K Air’s weight is reduced by approximately 50% with a centralized center of gravity, ensuring an improved flight time and flight experience. Additionally, the gimbal axis arms and lens locking design adopt optimized vibration-proof designs for aerial photography so that the aircraft can stay stable even during dramatic or high-speed flight maneuvers.\n\nThe new TB51 battery features higher energy density with reduced weight, and size, which is beneficial for the total flight time and wind resistance when flying forward, and is more advantageous than TB50 in terms of discharge voltage and reliability.\n\nThe DJI PROSSD 1TB of DJI Ronin 4D is interchangeable with Inspire 3."
+			},
+			{
+				"question": "Does DJI Inspire 3 support using dual remote controllers at the same time?",
+				"answer": "Yes. In the new dual-control mode, two remote controllers can receive live feeds and control the drone independently, so the pilot and gimbal operator can be at different positions on set during flight. Check the DJI Inspire 3 User Manual for more details."
+			},
+			{
+				"question": "How do I achieve the largest tilt and pan angles with the DJI Inspire 3 gimbal camera?",
+				"answer": "When the landing gear of DJI Inspire 3 is raised, it supports 360° pan shooting obstruction-free. When the landing gear is lowered and the gimbal camera faces forward, it can achieve 80° tilt shooting obstruction-free."
+			},
+			{
+				"question": "Can I take DJI Inspire 3’s batteries in carry-on baggage when boarding an airplane?",
+				"answer": "Yes. The capacity of a DJI Inspire 3 Intelligent Battery is 4280 mAh and the energy is 98.8 Wh. Most aviation companies regulate that batteries under 100 Wh can be transported in carry-on baggage."
+			},
+			{
+				"question": "Does DJI Inspire 3 support the DJI High-Bright Remote Monitor?",
+				"answer": "Yes. DJI High-Bright Remote Monitor can pair directly with Inspire 3 to receive live feeds, and can even control gimbal and focus when the Ronin 4D Hand Grips are attached. HDMI and SDI ports on the remote monitor can also output live feeds to other monitoring devices."
+			}
+		]
+	}
+]

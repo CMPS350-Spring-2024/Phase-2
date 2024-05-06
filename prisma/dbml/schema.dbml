@@ -4,6 +4,7 @@
 
 Table User {
   id Int [pk, increment]
+  type String [not null, default: 'customer']
   firstName String [not null]
   lastName String [not null]
   email String [unique, not null]
@@ -52,7 +53,8 @@ Table Order {
 
 Table Product {
   id Int [pk, increment]
-  name String [not null]
+  name String [unique, not null]
+  modelName String [not null]
   description String [not null]
   price Float [not null]
   quantity Int [not null]
@@ -63,11 +65,13 @@ Table Product {
   numberOfSales Int [not null]
   numberOfOngoingOrders Int [not null]
   imageUrl String [not null]
+  createdAt DateTime [default: `now()`, not null]
+  updatedAt DateTime [not null]
   series Series [not null]
   seriesId Int [not null]
   features Feature [not null]
-  includedItems IncludedItem [not null]
-  faqs FAQ [not null]
+  includedItems QuantizedIncludedItem [not null]
+  faqs Question [not null]
   model Model [not null]
   modelId Int [not null]
   orders Order [not null]
@@ -75,38 +79,55 @@ Table Product {
 
 Table Series {
   id Int [pk, increment]
-  name String [not null]
+  name String [unique, not null]
+  description String [not null]
   products Product [not null]
 }
 
 Table Feature {
   id Int [pk, increment]
-  name String [not null]
+  name String [unique, not null]
   imageUrl String [not null]
-  product Product [not null]
-  productId Int [not null]
+  products Product [not null]
+}
+
+Table QuantizedIncludedItem {
+  id Int [pk, increment]
+  quantity Int [not null]
+  item IncludedItem [not null]
+  itemId Int [not null]
+  products Product [not null]
+
+  indexes {
+    (quantity, itemId) [unique]
+  }
 }
 
 Table IncludedItem {
   id Int [pk, increment]
   name String [not null]
-  quantity Int [not null]
   imageUrl String [not null]
-  product Product [not null]
-  productId Int [not null]
+  products QuantizedIncludedItem [not null]
+
+  indexes {
+    (name, imageUrl) [unique]
+  }
 }
 
-Table FAQ {
+Table Question {
   id Int [pk, increment]
   question String [not null]
   answer String [not null]
-  product Product [not null]
-  productId Int [not null]
+  products Product [not null]
+
+  indexes {
+    (question, answer) [unique]
+  }
 }
 
 Table Model {
   id Int [pk, increment]
-  url String [not null]
+  url String [unique, not null]
   positionX Float [not null]
   positionY Float [not null]
   positionZ Float [not null]
@@ -129,6 +150,21 @@ Table Transaction {
   customerId Int [unique, not null]
 }
 
+Table FeatureToProduct {
+  featuresId Int [ref: > Feature.id]
+  productsId Int [ref: > Product.id]
+}
+
+Table ProductToQuantizedIncludedItem {
+  includeditemsId Int [ref: > QuantizedIncludedItem.id]
+  productsId Int [ref: > Product.id]
+}
+
+Table ProductToQuestion {
+  faqsId Int [ref: > Question.id]
+  productsId Int [ref: > Product.id]
+}
+
 Ref: Customer.userId - User.id
 
 Ref: ShippingAddress.customerId - Customer.id
@@ -141,10 +177,6 @@ Ref: Product.seriesId > Series.id
 
 Ref: Product.modelId > Model.id
 
-Ref: Feature.productId > Product.id
-
-Ref: IncludedItem.productId > Product.id
-
-Ref: FAQ.productId > Product.id
+Ref: QuantizedIncludedItem.itemId > IncludedItem.id
 
 Ref: Transaction.customerId > Customer.id

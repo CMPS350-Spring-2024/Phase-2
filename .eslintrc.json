@@ -15,6 +15,7 @@
 		"indent": "off",
 		"max-len": "off",
 		"no-tabs": "off",
+		"camelcase": "off",
 		"no-shadow": "off",
 		"key-spacing": "off",
 		"import/order": "off",
@@ -38,13 +39,6 @@
 		"@typescript-eslint/no-explicit-any": "off",
 		"@typescript-eslint/no-empty-interface": "off",
 		"object-curly-spacing": ["error", "always"],
-		"camelcase": [
-			"error",
-			{
-				"ignoreImports": true,
-				"ignoreDestructuring": true
-			}
-		],
 		"prettier/prettier": [
 			"error",
 			{

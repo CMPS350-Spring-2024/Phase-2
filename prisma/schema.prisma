@@ -16,6 +16,7 @@ datasource db {
 
 model User {
     id          Int      @id @default(autoincrement())
+    type        String   @default("customer")
     firstName   String
     lastName    String
     email       String   @unique
@@ -73,7 +74,8 @@ model Order {
 model Product {
     id Int @id @default(autoincrement())
 
-    name                  String
+    name                  String   @unique
+    modelName             String
     description           String
     price                 Float
     quantity              Int
@@ -84,13 +86,15 @@ model Product {
     numberOfSales         Int
     numberOfOngoingOrders Int
     imageUrl              String
+    createdAt             DateTime @default(now())
+    updatedAt             DateTime @updatedAt
 
     series   Series @relation(fields: [seriesId], references: [id])
     seriesId Int
 
     features      Feature[]
-    includedItems IncludedItem[]
-    faqs          FAQ[]
+    includedItems QuantizedIncludedItem[]
+    faqs          Question[]
 
     model   Model @relation(fields: [modelId], references: [id])
     modelId Int
@@ -101,7 +105,8 @@ model Product {
 model Series {
     id Int @id @default(autoincrement())
 
-    name String
+    name        String @unique
+    description String
 
     products Product[]
 }
@@ -109,38 +114,51 @@ model Series {
 model Feature {
     id Int @id @default(autoincrement())
 
-    name     String
+    name     String @unique
     imageUrl String
 
-    product   Product @relation(fields: [productId], references: [id])
-    productId Int
+    products Product[]
+}
+
+model QuantizedIncludedItem {
+    id Int @id @default(autoincrement())
+
+    quantity Int
+
+    item   IncludedItem @relation(fields: [itemId], references: [id])
+    itemId Int
+
+    products Product[]
+
+    @@unique([quantity, itemId])
 }
 
 model IncludedItem {
     id Int @id @default(autoincrement())
 
     name     String
-    quantity Int
     imageUrl String
 
-    product   Product @relation(fields: [productId], references: [id])
-    productId Int
+    products QuantizedIncludedItem[]
+
+    @@unique([name, imageUrl])
 }
 
-model FAQ {
+model Question {
     id Int @id @default(autoincrement())
 
     question String
     answer   String
 
-    product   Product @relation(fields: [productId], references: [id])
-    productId Int
+    products Product[]
+
+    @@unique([question, answer])
 }
 
 model Model {
     id Int @id @default(autoincrement())
 
-    url String
+    url String @unique
 
     positionX Float
     positionY Float
