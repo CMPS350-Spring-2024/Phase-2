@@ -196,6 +196,59 @@ class ProductService {
 			return [];
 		}
 	};
+
+	calculateTotalUsers = async (): Promise<number> => {
+		try {
+			const totalUsers = await prisma.user.count();
+			return totalUsers;
+		} catch (error) {
+			console.error('Error calculating total number of users:', error);
+			return 0;
+		}
+	};
+
+	// Method to calculate the average rating of products
+	calculateAverageProductRating = async (): Promise<number> => {
+		try {
+			const products = await prisma.product.findMany();
+			const totalRatings = products.reduce((acc, product) => acc + product.rating, 0);
+			const averageRating = totalRatings / products.length;
+			return averageRating;
+		} catch (error) {
+			console.error('Error calculating average product rating:', error);
+			return 0;
+		}
+	};
+
+	// Method to get the total number of orders
+	getTotalNumberOfOrders = async (): Promise<number> => {
+		try {
+			const totalOrders = await prisma.order.count();
+			return totalOrders;
+		} catch (error) {
+			console.error('Error getting total number of orders:', error);
+			return 0;
+		}
+	};
+
+	// Method to calculate the total sales revenue within a specific date range
+	calculateTotalSalesRevenueByDateRange = async (startDate: Date, endDate: Date): Promise<number> => {
+		try {
+			const orders = await prisma.order.findMany({
+				where: {
+					dateTime: {
+						gte: startDate,
+						lte: endDate,
+					},
+				},
+			});
+			const totalRevenue = orders.reduce((acc, order) => acc + order.total, 0);
+			return totalRevenue;
+		} catch (error) {
+			console.error('Error calculating total sales revenue by date range:', error);
+			return 0;
+		}
+	};
 }
 
 export default new ProductService();
