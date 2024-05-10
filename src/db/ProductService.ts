@@ -145,6 +145,58 @@ class ProductService {
 			faqs: faqs,
 		};
 	};
+
+	getTotalNumberOfProducts = async (): Promise<number> => {
+		try {
+			const totalProducts = await prisma.product.count();
+			return totalProducts;
+		} catch (error) {
+			console.error('Error getting total number of products:', error);
+			return 0;
+		}
+	};
+
+	// Method to calculate the total sales revenue
+	calculateTotalSalesRevenue = async (): Promise<number> => {
+		try {
+			const orders = await prisma.order.findMany();
+			const totalRevenue = orders.reduce((acc, order) => acc + order.total, 0);
+			return totalRevenue;
+		} catch (error) {
+			console.error('Error calculating total sales revenue:', error);
+			return 0;
+		}
+	};
+
+	// Method to calculate the average order value
+	calculateAverageOrderValue = async (): Promise<number> => {
+		try {
+			const orders = await prisma.order.findMany();
+			const totalOrderValue = orders.reduce((acc, order) => acc + order.total, 0);
+			const averageOrderValue = totalOrderValue / orders.length;
+			return averageOrderValue;
+		} catch (error) {
+			console.error('Error calculating average order value:', error);
+			return 0;
+		}
+	};
+
+	// Method to get the top selling products
+	getTopSellingProducts = async (limit: number): Promise<Product[]> => {
+		try {
+			const topSellingProducts = await prisma.product.findMany({
+				orderBy: {
+					numberOfSales: 'desc',
+				},
+				take: limit,
+			});
+			return topSellingProducts;
+		} catch (error) {
+			console.error('Error getting top selling products:', error);
+			return [];
+		}
+	};
 }
 
 export default new ProductService();
+
