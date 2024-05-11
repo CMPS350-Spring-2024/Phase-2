@@ -1,3 +1,4 @@
+import { ProductCreate } from '@/types/Product';
 import { Feature, IncludedItem, Model, PrismaClient, Product, QuantizedIncludedItem, Question, Series } from '@prisma/client';
 import fs from 'fs-extra';
 import path from 'path';
@@ -7,8 +8,10 @@ type IGetMany = (options: { seriesName?: string; seriesDescription?: string }) =
 type IGetUnique = (options: { id?: number }) => Promise<Product | null | undefined>;
 type IGetCount = (options: { seriesName?: string; seriesDescription?: string }) => Promise<number>;
 
-type IParseJson = (data: Record<string, any>) => {
-	product: Product;
+type IAddOne = (data: ProductCreate, options: { upsert?: boolean }) => Promise<Product | null | undefined>;
+
+type IParse = (data: Record<string, any>) => {
+	product: Omit<Product, 'id' | 'modelId' | 'seriesId'>;
 	model: Model;
 	series: Series;
 	features: Array<Feature>;
@@ -60,71 +63,66 @@ class ProductService {
 			},
 		});
 
-	addDefaultData = async () => {
-		const defaultProducts = await fs.readJson(this._defaultDataPath);
+	addOne: IAddOne = async (data, options) => {
+		const { upsert = false } = options || {};
+		const { product, model, series, features, includedItems, faqs } = this.parse(data);
 
-		for (const productJson of defaultProducts) {
-			const {
-				product: { id: _, seriesId: __, modelId: ___, ...product },
-				model,
-				series,
-				features,
-				includedItems,
-				faqs,
-			} = this.parseJson(productJson);
-
-			//	Find or create included items
-			const dbIncludedItems = [];
-			for (const { quantity, ...item } of includedItems) {
-				const existingItem = await prisma.includedItem.findFirst({
-					where: { name: item.name, imageUrl: item.imageUrl },
-				});
-				if (existingItem) {
-					dbIncludedItems.push({ data: existingItem, quantity });
-					continue;
-				}
-				dbIncludedItems.push({ data: await prisma.includedItem.create({ data: item }), quantity });
+		//	Find or create included items
+		const dbIncludedItems = [];
+		for (const { quantity, ...item } of includedItems) {
+			const existingItem = await prisma.includedItem.findFirst({
+				where: { name: item.name, imageUrl: item.imageUrl },
+			});
+			if (existingItem) {
+				dbIncludedItems.push({ data: existingItem, quantity });
+				continue;
 			}
-
-			//	Format the query to create the product
-			const query = {
-				...product,
-				model: { connectOrCreate: { where: { url: model.url }, create: model } },
-				series: { connectOrCreate: { where: { name: series.name }, create: series } },
-				features: {
-					connectOrCreate: features.map((feature) => ({ where: { name: feature.name }, create: feature })),
-				},
-				includedItems: {
-					connectOrCreate: dbIncludedItems.map(({ data, quantity }) => ({
-						where: { quantity_itemId: { quantity, itemId: data.id } },
-						create: { quantity, itemId: data.id },
-					})),
-				},
-				faqs: {
-					connectOrCreate: faqs.map((faq) => ({
-						where: { question_answer: { question: faq.question, answer: faq.answer } },
-						create: faq,
-					})),
-				},
-			};
-
-			//	Check if there is an existing product with the same name
-			const existingProduct = await prisma.product.findFirst({ where: { name: product.name } });
-
-			//	If there is an existing product, update it
-			if (existingProduct) {
-				await prisma.product.update({
-					where: { name: product.name },
-					data: query,
-				});
-				return;
-			}
-
-			await prisma.product.create({ data: query });
+			dbIncludedItems.push({ data: await prisma.includedItem.create({ data: item }), quantity });
 		}
+
+		//	Check if there is an existing product with the same name
+		const existingProduct = await prisma.product.findFirst({ where: { name: product.name } });
+
+		//	Format the query to create the product
+		const query = {
+			...product,
+			model: { connectOrCreate: { where: { url: model.url }, create: model } },
+			series: { connectOrCreate: { where: { name: series.name }, create: series } },
+			features: {
+				connectOrCreate: features.map((feature) => ({ where: { name: feature.name }, create: feature })),
+			},
+			includedItems: {
+				connectOrCreate: dbIncludedItems.map(({ data, quantity }) => ({
+					where: { quantity_itemId: { quantity, itemId: data.id } },
+					create: { quantity, itemId: data.id },
+				})),
+			},
+			faqs: {
+				connectOrCreate: faqs.map((faq) => ({
+					where: { question_answer: { question: faq.question, answer: faq.answer } },
+					create: faq,
+				})),
+			},
+		};
+
+		//	If there is an existing product and we are upserting, update it
+		if (upsert && existingProduct) {
+			await prisma.product.update({
+				where: { name: product.name },
+				data: query,
+			});
+			return;
+		}
+
+		return await prisma.product.create({ data: query });
 	};
 
-	private parseJson: IParseJson = ({
+	addDefaultData = async () => {
+		const defaultProducts = await fs.readJson(this._defaultDataPath);
+		for (const productJson of defaultProducts) await this.addOne(productJson);
+	};
+
+	private parse: IParse = ({
 		_id,
 		model: { position, rotation, cameraPosition, ...model },
 		series: { model: seriesModel, ...series },
@@ -134,9 +132,9 @@ class ProductService {
 		...data
 	}) => ({
 		product: {
-			...data,
+			...(data as any),
 			modelName: seriesModel,
-		} as any,
+		},
 		model: {
 			...model,
 			positionX: position.x,
