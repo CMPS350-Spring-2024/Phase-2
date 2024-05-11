@@ -1,28 +1,39 @@
-'use client'; // This is a client component 👈🏽
+'use client'; // This is a client component
 import Chart from 'chart.js';
 import React from 'react';
 
 export default function CardLineChart() {
+	const currentYear = new Date().getFullYear();
+	const currentMonth = new Date().getMonth();
+	const currentDay = new Date().getDay();
+	const monthNow = new Intl.DateTimeFormat('eng', { month: 'long' }).format(new Date(currentYear, currentMonth, currentDay));
+	const prev_month = new Intl.DateTimeFormat('eng', { month: 'long' }).format(
+		new Date(currentYear, currentMonth - 1, currentDay),
+	);
+	const befo_prev_month = new Intl.DateTimeFormat('eng', { month: 'long' }).format(
+		new Date(currentYear, currentMonth - 2, currentDay),
+	);
+
 	React.useEffect(() => {
 		var config = {
 			type: 'line',
 			data: {
-				labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+				labels: [befo_prev_month, prev_month, monthNow], //, '...', '...', '...', '...'],
 				datasets: [
 					{
 						label: new Date().getFullYear(),
 						backgroundColor: '#3182ce',
 						borderColor: '#3182ce',
-						data: [65, 78, 66, 44, 56, 67, 75],
+						data: [65, 78, 66],
 						fill: true,
 					},
-					{
-						label: new Date().getFullYear() - 1,
-						fill: true,
-						backgroundColor: '#000000',
-						borderColor: '#000000',
-						data: [40, 68, 86, 74, 56, 60, 87],
-					},
+					// {
+					// 	label: new Date().getFullYear() - 1,
+					// 	fill: true,
+					// 	backgroundColor: '#000000',
+					// 	borderColor: '#000000',
+					// 	data: [40, 68, 86, 74, 56, 60, 87],
+					// },
 				],
 			},
 			options: {
@@ -86,7 +97,7 @@ export default function CardLineChart() {
 								borderDash: [3],
 								borderDashOffset: [3],
 								drawBorder: false,
-								color: '#000000',
+								color: '#808080  ',
 								zeroLineColor: '#000000',
 								zeroLineBorderDashOffset: [2],
 							},
