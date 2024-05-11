@@ -1,8 +1,8 @@
-/* main { */
-/* @apply flex flex-col gap-6 p-4;
+main {
+	@apply flex flex-col gap-6 p-4;
 	@apply lg:px-16 lg:py-12;
-	@apply xl:gap-12 xl:px-32 xl:py-16; */
-
+	@apply xl:gap-12 xl:px-32 xl:py-16;
+}
 .page-name {
 	@apply text-xl font-extrabold;
 }
@@ -303,4 +303,3 @@ main {
 		@apply mx-1 h-12 w-[50%]  rounded-sm bg-red-500  text-xl font-bold;
 	}
 }
-/* } */
