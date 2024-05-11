@@ -1,8 +1,9 @@
 import ProductService from '@/db/ProductService';
 
 // return the top selling products.
-export const GET_TOP_SELLING_PRODUCTS = async (req: Request) => {
-	const { limit } = req.query;
-	const topSellingProducts = await ProductService.getTopSellingProducts(Number(limit));
+export const GET = async (req: Request) => {
+	const { searchParams } = new URL(req.url);
+	const limit = Number(searchParams.get('limit')) || 0;
+	const topSellingProducts = await ProductService.getTopSellingProducts(limit);
 	return Response.json({ topSellingProducts });
 };

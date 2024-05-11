@@ -5,4 +5,3 @@ export const GET = async () => {
 	const averageRating = await ProductService.calculateAverageProductRating();
 	return Response.json({ averageRating });
 };
-

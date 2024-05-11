@@ -1,8 +1,6 @@
-
 // import TotalOrders from "@/api/products/total-orders/";
 export default function StatisticsCard() {
 	// event.preventDefault();
-
 
 	return (
 		<>
