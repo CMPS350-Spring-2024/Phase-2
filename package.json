@@ -10,10 +10,8 @@
 		"seed": "tsx prisma/seed.ts",
 		"migrate": "prisma migrate dev",
 		"generate": "prisma generate",
-		"studio": "prisma studio"
-	},
-	"prisma": {
-		"seed": "ts-node --compiler-options {\"module\":\"CommonJS\"} prisma/seed.ts"
+		"studio": "prisma studio",
+		"db-seed": "NODE_ENV=development prisma db seed"
 	},
 	"dependencies": {
 		"@faker-js/faker": "^8.4.1",
@@ -23,7 +21,6 @@
 		"lucide": "^0.343.0",
 		"next": "14.2.3",
 		"react": "^18",
-		"react-chartjs-2": "^5.2.0",
 		"react-dom": "^18",
 		"valibot": "^0.30.0"
 	},
@@ -59,6 +56,9 @@
 		"tailwindcss": "^3.4.1",
 		"ts-node": "^10.9.2",
 		"typescript": "^5.2.2"
+	},
+	"prisma": {
+		"seed": "tsx prisma/seed.ts"
 	},
 	"lint-staged": {
 		"src/*": "eslint"
@@ -243,5 +243,7 @@
 				}
 			}
 		}
-	}
+	},
+	"type": "module"
 }
+
