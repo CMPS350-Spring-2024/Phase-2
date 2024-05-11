@@ -1,4 +1,9 @@
+
+// import TotalOrders from "@/api/products/total-orders/";
 export default function StatisticsCard() {
+	// event.preventDefault();
+
+
 	return (
 		<>
 			<section className='statistics'>
@@ -43,7 +48,8 @@ export default function StatisticsCard() {
 								className='this-stat'
 								id='sale-statistic'
 							>
-								00{/* 41,321 */}
+								{/* {response.json()} */}
+								{/* 41,321 */}
 							</h2>
 
 							<h2 className='currncy text-gray-600'>Drones</h2>
