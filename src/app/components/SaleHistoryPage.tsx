@@ -1,3 +1,5 @@
+import StatisticsCard from '../components/StatisticsCard.tsx';
+
 export default function SaleHistoryPage() {
 	return (
 		<>
@@ -65,7 +67,7 @@ export default function SaleHistoryPage() {
 					</div>
 				</div>
 			</section>
-			<section className='statistics'>{/* Statistics cards */}</section>
+			<StatisticsCard></StatisticsCard>
 			<section>
 				<table className='order-table'>
 					<thead className='table-head'>
@@ -111,4 +113,3 @@ export default function SaleHistoryPage() {
 		</>
 	);
 }
-
