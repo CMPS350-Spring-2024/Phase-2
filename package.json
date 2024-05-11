@@ -28,6 +28,7 @@
 		"@commitlint/cli": "^18.6.1",
 		"@commitlint/config-conventional": "^18.6.2",
 		"@tailwindcss/forms": "^0.5.7",
+		"@types/chart.js": "^2.9.41",
 		"@types/fs-extra": "^11.0.4",
 		"@types/node": "^20.12.7",
 		"@types/react": "^18",
@@ -246,4 +247,3 @@
 	},
 	"type": "module"
 }
-
