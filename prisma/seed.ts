@@ -6,7 +6,44 @@ import { prisma } from '../src/server/db';
 
 const prisma = new PrismaClient();
 
-async function createRandomCustomers(numCustomers: number) {}
+async function createRandomCustomers(numCustomers: number) {
+	const customers = [];
+	for (let i = 0; i < numCustomers; i++) {
+		const firstName = faker.person.firstName();
+		const lastName = faker.person.lastName();
+		const email = faker.internet.email({ firstName: firstName, lastName: lastName });
+		const phone = faker.phone.number('+974 55## ####');
+		const password = faker.internet.password();
+		const avatarColor = faker.internet.color();
+		const balance = parseFloat(faker.finance.amount());
+
+		const user = await prisma.user.create({
+			data: {
+				firstName,
+				lastName,
+				email,
+				phone,
+				password,
+				avatarColor,
+				balance,
+			},
+		});
+
+		const customer = await prisma.customer.create({
+			data: {
+				user: {
+					connect: {
+						id: user.id,
+					},
+				},
+			},
+		});
+
+		customers.push(customer);
+	}
+
+	return customers;
+}
 
 async function createRandomOrders(customers: Prisma.CustomerCreateManyInput[]) {}
 
