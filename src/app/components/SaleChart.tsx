@@ -2,6 +2,8 @@
 import Chart from 'chart.js';
 import React from 'react';
 
+
+
 export default function CardLineChart() {
 	const currentYear = new Date().getFullYear();
 	const currentMonth = new Date().getMonth();
