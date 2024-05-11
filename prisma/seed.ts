@@ -64,9 +64,9 @@ function randomNumber(min, max) {
 async function createRandomOrders(customers: Prisma.CustomerCreateManyInput[]) {
 	const orders = [];
 	for (const customer of customers) {
-		const numOrders = randomNumber(1, 5);
+		const numOrders = randomNumber(2, 6);
 		for (let i = 0; i < numOrders; i++) {
-			const quantity = randomNumber(1, 10);
+			const quantity = randomNumber(3, 10);
 			const subtotal = parseFloat(faker.finance.amount());
 			const shippingFee = parseFloat(faker.finance.amount());
 			const total = subtotal + shippingFee;
@@ -110,10 +110,12 @@ async function createRandomOrders(customers: Prisma.CustomerCreateManyInput[]) {
 async function createRandomTransactions(customers: Prisma.CustomerCreateManyInput[]) {
 	const transactions = [];
 	for (const customer of customers) {
-		const numTransactions = randomNumber(1, 5);
+		const numTransactions = randomNumber(2, 6);
 		for (let i = 0; i < numTransactions; i++) {
 			const amount = parseFloat(faker.finance.amount());
-			const type = faker.random.arrayElement(['deposit', 'withdrawal']);
+			let type;
+			if (numTransactions < 3) type = 'deposit';
+			else type = 'withdrawal';
 
 			const transaction = await prisma.transaction.create({
 				data: {
