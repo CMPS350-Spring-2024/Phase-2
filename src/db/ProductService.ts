@@ -4,8 +4,16 @@ import fs from 'fs-extra';
 import path from 'path';
 const prisma = new PrismaClient();
 
-type IGetMany = (options: { seriesName?: string; seriesDescription?: string }) => Promise<Array<Product> | null | undefined>;
-type IGetUnique = (id: number) => Promise<Product | null | undefined>;
+type FullProduct = Product & {
+	model: Model;
+	series: Series;
+	features: Array<Feature>;
+	includedItems: Array<QuantizedIncludedItem & { item: IncludedItem }>;
+	faqs: Array<Question>;
+};
+
+type IGetMany = (options: { seriesName?: string; seriesDescription?: string }) => Promise<Array<FullProduct> | null | undefined>;
+type IGetUnique = (id: number) => Promise<FullProduct | null | undefined>;
 type IGetCount = (options: { seriesName?: string; seriesDescription?: string }) => Promise<number>;
 
 type IAddOne = (data: ProductCreate, options?: { upsert?: boolean }) => Promise<Product | null | undefined>;
@@ -20,6 +28,7 @@ type IParse = (data: Record<string, any>) => {
 	includedItems: Array<QuantizedIncludedItem & IncludedItem>;
 	faqs: Array<Question>;
 };
+type ITransform = (data: FullProduct | null | undefined) => Record<string, any>;
 
 class ProductService {
 	_defaultDataPath = path.join(process.cwd(), 'src/data/product_list.json');
@@ -36,7 +45,11 @@ class ProductService {
 				model: true,
 				series: true,
 				features: true,
-				includedItems: true,
+				includedItems: {
+					include: {
+						item: true,
+					},
+				},
 				faqs: true,
 			},
 		});
@@ -50,7 +63,11 @@ class ProductService {
 				model: true,
 				series: true,
 				features: true,
-				includedItems: true,
+				includedItems: {
+					include: {
+						item: true,
+					},
+				},
 				faqs: true,
 			},
 		});
@@ -175,7 +192,7 @@ class ProductService {
 		return await prisma.product.create({ data: query });
 	};
 
-	private parse: IParse = ({
+	parse: IParse = ({
 		_id,
 		model: { position, rotation, cameraPosition, ...model },
 		series: { model: seriesModel, ...series },
@@ -205,6 +222,40 @@ class ProductService {
 		includedItems: includedItems,
 		faqs: faqs,
 	});
+
+	transform: ITransform = (data) => {
+		if (!data) return {};
+		const {
+			id,
+			modelId: _,
+			seriesId: __,
+			modelName: ___,
+			model,
+			series: { id: ____, ...series },
+			features,
+			includedItems,
+			faqs,
+			...product
+		} = data;
+		return {
+			...product,
+			_id: id,
+			model: {
+				url: model.url,
+				scale: model.scale,
+				position: { x: model.positionX, y: model.positionY, z: model.positionZ },
+				rotation: { x: model.rotationX, y: model.rotationY, z: model.rotationZ },
+				cameraPosition: { x: model.cameraX, y: model.cameraY, z: model.cameraZ },
+			},
+			series,
+			features: features.map(({ id: _, ...data }) => data),
+			includedItems: includedItems.map(({ id: _, itemId: __, item: { id: ___, ...item }, ...feature }) => ({
+				...feature,
+				...item,
+			})),
+			faqs: faqs.map(({ id: _, ...data }) => data),
+		};
+	};
 
 	// Method to calculate the total sales revenue
 	calculateTotalSalesRevenue = async (): Promise<number> => {
