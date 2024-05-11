@@ -109,7 +109,32 @@ async function createRandomOrders(customers: Prisma.CustomerCreateManyInput[]) {
 	return orders;
 }
 
-async function createRandomTransactions(customers: Prisma.CustomerCreateManyInput[]) {}
+async function createRandomTransactions(customers: Prisma.CustomerCreateManyInput[]) {
+	const transactions = [];
+	for (const customer of customers) {
+		const numTransactions = faker.datatype.number({ min: 1, max: 5 });
+		for (let i = 0; i < numTransactions; i++) {
+			const amount = faker.finance.amount();
+			const type = faker.random.arrayElement(['deposit', 'withdrawal']);
+
+			const transaction = await prisma.transaction.create({
+				data: {
+					amount,
+					type,
+					customer: {
+						connect: {
+							id: customer.id,
+						},
+					},
+				},
+			});
+
+			transactions.push(transaction);
+		}
+	}
+
+	return transactions;
+}
 
 async function main() {
 	try {
