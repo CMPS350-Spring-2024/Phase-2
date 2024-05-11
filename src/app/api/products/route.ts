@@ -7,15 +7,19 @@ export const GET = async (req: Request) => {
 		const seriesName = searchParams.get('seriesName') || undefined;
 		const seriesDescription = searchParams.get('seriesDescription') || undefined;
 
-		if (id) return Response.json({ message: 'Returned one product from DB', data: await ProductService.getUnique({ id }) });
+		if (id)
+			return Response.json({
+				message: 'Returned one product from DB',
+				data: ProductService.transform(await ProductService.getUnique(id)),
+			});
 		return Response.json({
 			message: 'Returned many products from DB',
-			data: await ProductService.getMany({ seriesName, seriesDescription }),
+			data: (await ProductService.getMany({ seriesName, seriesDescription }))?.map(ProductService.transform),
 		});
 	} catch (error) {
 		console.error(error);
-		if (error instanceof Error) return Response.json({ error: error.message });
-		return Response.json({ error: 'An unknown error occurred whilst fetching the products' });
+		if (error instanceof Error) return Response.json({ message: error.message });
+		return Response.json({ message: 'An unknown error occurred whilst fetching the products' });
 	}
 };
 
@@ -25,7 +29,7 @@ export const POST = async (req: Request) => {
 		return Response.json({ message: 'Product added successfully', data: await ProductService.addOne(data) });
 	} catch (error) {
 		console.error(error);
-		if (error instanceof Error) return Response.json({ error: error.message });
-		return Response.json({ error: 'An unknown error occurred whilst adding the product' });
+		if (error instanceof Error) return Response.json({ message: error.message });
+		return Response.json({ message: 'An unknown error occurred whilst adding the product' });
 	}
 };
