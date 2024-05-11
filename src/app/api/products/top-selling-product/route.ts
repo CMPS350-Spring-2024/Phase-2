@@ -6,4 +6,3 @@ export const GET_TOP_SELLING_PRODUCTS = async (req: Request) => {
 	const topSellingProducts = await ProductService.getTopSellingProducts(Number(limit));
 	return Response.json({ topSellingProducts });
 };
-

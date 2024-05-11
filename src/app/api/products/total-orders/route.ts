@@ -5,4 +5,3 @@ export const GET = async () => {
 	const totalOrders = await ProductService.getTotalNumberOfOrders();
 	return Response.json({ totalOrders });
 };
-

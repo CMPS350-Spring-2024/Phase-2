@@ -1,5 +1,5 @@
+import SaleChart from '../components/SaleChart.tsx';
 import StatisticsCard from '../components/StatisticsCard.tsx';
-
 export default function SaleHistoryPage() {
 	return (
 		<>
@@ -67,6 +67,7 @@ export default function SaleHistoryPage() {
 					</div>
 				</div>
 			</section>
+			<SaleChart></SaleChart>
 			<StatisticsCard></StatisticsCard>
 			{/* stat card is here */}
 			<section>
