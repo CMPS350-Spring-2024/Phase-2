@@ -52,6 +52,9 @@ model ShippingAddress {
 
     customer   Customer @relation(fields: [customerId], references: [id])
     customerId Int      @unique
+    Order      Order[]
+
+    @@unique([label, street, city, country])
 }
 
 model Order {
@@ -63,6 +66,9 @@ model Order {
     total            Float
     dateTime         DateTime @default(now())
     estimatedArrival DateTime
+
+    shippingAddress   ShippingAddress @relation(fields: [shippingAddressId], references: [id])
+    shippingAddressId Int
 
     customer   Customer @relation(fields: [customerId], references: [id])
     customerId Int

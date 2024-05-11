@@ -7,8 +7,8 @@ export const GET = async (req: Request) => {
 		const subtotal = Number(searchParams.get('subtotal')) || undefined;
 		const shippingFee = Number(searchParams.get('shippingFee')) || undefined;
 		const total = Number(searchParams.get('total')) || undefined;
-		const dateTime = new Date(searchParams.get('dateTime') || 0);
-		const estimatedArrival = new Date(searchParams.get('estimatedArrival') || 0);
+		const dateTime = new Date(Number(searchParams.get('dateTime')) || 0);
+		const estimatedArrival = new Date(Number(searchParams.get('estimatedArrival')) || 0);
 
 		return Response.json({
 			message: 'Returned order count from DB',
