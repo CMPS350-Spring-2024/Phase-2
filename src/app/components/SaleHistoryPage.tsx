@@ -68,6 +68,7 @@ export default function SaleHistoryPage() {
 				</div>
 			</section>
 			<StatisticsCard></StatisticsCard>
+			{/* stat card is here */}
 			<section>
 				<table className='order-table'>
 					<thead className='table-head'>
