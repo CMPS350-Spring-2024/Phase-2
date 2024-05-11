@@ -106,7 +106,7 @@ export default function CardLineChart() {
 				},
 			},
 		};
-		var ctx = document.querySelector('#line-chart').getContext('2d');
+		var ctx = document.querySelector<HTMLCanvasElement>('#line-chart').getContext('2d');
 		window.myLine = new Chart(ctx, config);
 	}, []);
 	return (

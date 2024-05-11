@@ -2,7 +2,8 @@
 // learn more about it in the docs: https://pris.ly/d/prisma-schema
 
 generator client {
-    provider = "prisma-client-js"
+    provider      = "prisma-client-js"
+    binaryTargets = ["native", "rhel-openssl-3.0.x"]
 }
 
 generator dbml {
@@ -10,7 +11,7 @@ generator dbml {
 }
 
 datasource db {
-    provider = "sqlite"
+    provider = "postgres"
     url      = env("DATABASE_URL")
 }
 
@@ -33,9 +34,11 @@ model User {
 model Customer {
     id Int @id @default(autoincrement())
 
-    shippingAddresses ShippingAddress?
-    orders            Order[]
-    transactions      Transaction[]
+    shippingAddress   ShippingAddress? @relation(fields: [shippingAddressId], references: [id])
+    shippingAddressId Int?
+
+    orders       Order[]
+    transactions Transaction[]
 
     user   User @relation(fields: [userId], references: [id])
     userId Int  @unique
@@ -50,9 +53,8 @@ model ShippingAddress {
     country String @default("Qatar")
     url     String @default("https://www.google.com/maps/place/Qatar+University/@25.3755282,51.4861504,17z/data=!3m1!4b1!4m6!3m5!1s0x3e45dd1faaf07c23:0x21f2193775153df1!8m2!3d25.3755282!4d51.4887307!16s%2Fm%2F05pdfng?entry=ttu")
 
-    customer   Customer @relation(fields: [customerId], references: [id])
-    customerId Int      @unique
-    Order      Order[]
+    customer Customer[]
+    orders   Order[]
 
     @@unique([label, street, city, country])
 }

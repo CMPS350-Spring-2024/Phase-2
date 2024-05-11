@@ -314,6 +314,22 @@ class ProductService {
 		}
 	};
 
+	// // Method to get the top selling products
+	// getTop3SellingProducts = async (): Promise<Product[]> => {
+	// 	try {
+	// 		const topSellingProducts = await prisma.product.findMany({
+	// 			orderBy: {
+	// 				numberOfSales: 'desc',
+	// 			},
+	// 			take: 3,
+	// 		});
+	// 		return topSellingProducts;
+	// 	} catch (error) {
+	// 		console.error('Error getting top selling products:', error);
+	// 		return [];
+	// 	}
+	// };
+
 	calculateTotalUsers = async (): Promise<number> => {
 		try {
 			const totalUsers = await prisma.user.count();
