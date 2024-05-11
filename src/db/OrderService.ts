@@ -68,7 +68,7 @@ class ProductService {
 		//	Make sure the user and product exist
 		const user = await prisma.user.findUnique({ where: { id: userId } });
 		const product = await prisma.product.findUnique({ where: { id: productId } });
-		if (!user || !product) return null;
+		if (!user || user.type === 'admin' || !product) return null;
 
 		//	Check if there is an existing order
 		const existingOrder = await prisma.order.findUnique({
