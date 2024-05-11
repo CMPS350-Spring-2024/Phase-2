@@ -110,7 +110,7 @@ async function createRandomOrders(customers: Prisma.CustomerCreateManyInput[]) {
 async function createRandomTransactions(customers: Prisma.CustomerCreateManyInput[]) {
 	const transactions = [];
 	for (const customer of customers) {
-		const numTransactions = faker.datatype.number({ min: 1, max: 5 });
+		const numTransactions = randomNumber(1, 5);
 		for (let i = 0; i < numTransactions; i++) {
 			const amount = parseFloat(faker.finance.amount());
 			const type = faker.random.arrayElement(['deposit', 'withdrawal']);
