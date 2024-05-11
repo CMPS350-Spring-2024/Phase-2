@@ -46,9 +46,13 @@ Table Order {
   dateTime DateTime [default: `now()`, not null]
   estimatedArrival DateTime [not null]
   customer Customer [not null]
-  customerId Int [unique, not null]
+  customerId Int [not null]
   product Product [not null]
-  productId Int [unique, not null]
+  productId Int [not null]
+
+  indexes {
+    (customerId, productId, quantity, dateTime) [unique]
+  }
 }
 
 Table Product {

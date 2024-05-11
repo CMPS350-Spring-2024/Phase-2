@@ -65,10 +65,12 @@ model Order {
     estimatedArrival DateTime
 
     customer   Customer @relation(fields: [customerId], references: [id])
-    customerId Int      @unique
+    customerId Int
 
     product   Product @relation(fields: [productId], references: [id])
-    productId Int     @unique
+    productId Int
+
+    @@unique([customerId, productId, quantity, dateTime])
 }
 
 model Product {

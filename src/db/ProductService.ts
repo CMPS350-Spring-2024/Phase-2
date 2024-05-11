@@ -5,7 +5,7 @@ import path from 'path';
 const prisma = new PrismaClient();
 
 type IGetMany = (options: { seriesName?: string; seriesDescription?: string }) => Promise<Array<Product> | null | undefined>;
-type IGetUnique = (options: { id?: number }) => Promise<Product | null | undefined>;
+type IGetUnique = (id: number) => Promise<Product | null | undefined>;
 type IGetCount = (options: { seriesName?: string; seriesDescription?: string }) => Promise<number>;
 
 type IAddOne = (data: ProductCreate, options?: { upsert?: boolean }) => Promise<Product | null | undefined>;
@@ -41,10 +41,10 @@ class ProductService {
 			},
 		});
 
-	getUnique: IGetUnique = async (options) =>
+	getUnique: IGetUnique = async (id) =>
 		prisma.product.findUnique({
 			where: {
-				id: options.id,
+				id: id,
 			},
 			include: {
 				model: true,
