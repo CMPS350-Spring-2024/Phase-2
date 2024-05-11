@@ -1,5 +1,7 @@
 import SaleChart from '../components/SaleChart.tsx';
 import StatisticsCard from '../components/StatisticsCard.tsx';
+import Top3 from './top3Drones.tsx';
+import TotalSaleOfDrones from './totalSalesEachDrone.tsx';
 export default function SaleHistoryPage() {
 	return (
 		<>
@@ -67,7 +69,18 @@ export default function SaleHistoryPage() {
 					</div>
 				</div>
 			</section>
-			<SaleChart></SaleChart>
+			<section className='flex flex-row'>
+				{/* <TotalSaleOfDrones></TotalSaleOfDrones> */}
+				<SaleChart></SaleChart>
+				<TotalSaleOfDrones></TotalSaleOfDrones>
+				<Top3></Top3>
+			</section>
+			{/* <section className='flex flex-row'>
+				<SaleChart></SaleChart>
+				<SaleChart></SaleChart>
+				<SaleChart></SaleChart>
+			</section> */}
+
 			<StatisticsCard></StatisticsCard>
 			{/* stat card is here */}
 			<section>
