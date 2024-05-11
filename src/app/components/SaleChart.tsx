@@ -2,8 +2,6 @@
 import Chart from 'chart.js';
 import React from 'react';
 
-
-
 export default function CardLineChart() {
 	const currentYear = new Date().getFullYear();
 	const currentMonth = new Date().getMonth();
@@ -108,7 +106,7 @@ export default function CardLineChart() {
 				},
 			},
 		};
-		var ctx = document.querySelector('#line-chart').getContext('2d');
+		var ctx = document.querySelector<HTMLCanvasElement>('#line-chart').getContext('2d');
 		window.myLine = new Chart(ctx, config);
 	}, []);
 	return (
