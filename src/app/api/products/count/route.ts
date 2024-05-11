@@ -8,6 +8,7 @@ export const GET = async (req: Request) => {
 
 		return Response.json(await ProductService.getCount({ seriesName, seriesDescription }));
 	} catch (error) {
+		console.error(error);
 		if (error instanceof Error) return Response.json({ error: error.message });
 		return Response.json({ error: 'An unknown error occurred whilst fetching the number of products' });
 	}

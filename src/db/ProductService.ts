@@ -8,7 +8,9 @@ type IGetMany = (options: { seriesName?: string; seriesDescription?: string }) =
 type IGetUnique = (options: { id?: number }) => Promise<Product | null | undefined>;
 type IGetCount = (options: { seriesName?: string; seriesDescription?: string }) => Promise<number>;
 
-type IAddOne = (data: ProductCreate, options: { upsert?: boolean }) => Promise<Product | null | undefined>;
+type IAddOne = (data: ProductCreate, options?: { upsert?: boolean }) => Promise<Product | null | undefined>;
+
+type IUpdateOne = (id: number, data: ProductCreate, options?: { upsert?: boolean }) => Promise<Product | null | undefined>;
 
 type IParse = (data: Record<string, any>) => {
 	product: Omit<Product, 'id' | 'modelId' | 'seriesId'>;
@@ -67,6 +69,9 @@ class ProductService {
 		const { upsert = false } = options || {};
 		const { product, model, series, features, includedItems, faqs } = this.parse(data);
 
+		//	Check if there is an existing product with the same name
+		const existingProduct = await prisma.product.findFirst({ where: { name: product.name } });
+
 		//	Find or create included items
 		const dbIncludedItems = [];
 		for (const { quantity, ...item } of includedItems) {
@@ -79,9 +84,6 @@ class ProductService {
 			}
 			dbIncludedItems.push({ data: await prisma.includedItem.create({ data: item }), quantity });
 		}
-
-		//	Check if there is an existing product with the same name
-		const existingProduct = await prisma.product.findFirst({ where: { name: product.name } });
 
 		//	Format the query to create the product
 		const query = {
@@ -106,13 +108,11 @@ class ProductService {
 		};
 
 		//	If there is an existing product and we are upserting, update it
-		if (upsert && existingProduct) {
-			await prisma.product.update({
+		if (upsert && existingProduct)
+			return await prisma.product.update({
 				where: { name: product.name },
 				data: query,
 			});
-			return;
-		}
 
 		return await prisma.product.create({ data: query });
 	};
@@ -120,6 +120,59 @@ class ProductService {
 	addDefaultData = async () => {
 		const defaultProducts = await fs.readJson(this._defaultDataPath);
 		for (const productJson of defaultProducts) await this.addOne(productJson);
+	};
+
+	updateOne: IUpdateOne = async (id, data, options) => {
+		const { upsert = false } = options || {};
+		const { product, model, series, features, includedItems, faqs } = this.parse(data);
+
+		//	Check if there is an existing product with the same name
+		const existingProduct = await prisma.product.findFirst({ where: { id } });
+
+		if (!upsert && !existingProduct) return;
+
+		//	Find or create included items
+		const dbIncludedItems = [];
+		for (const { quantity, ...item } of includedItems) {
+			const existingItem = await prisma.includedItem.findFirst({
+				where: { name: item.name, imageUrl: item.imageUrl },
+			});
+			if (existingItem) {
+				dbIncludedItems.push({ data: existingItem, quantity });
+				continue;
+			}
+			dbIncludedItems.push({ data: await prisma.includedItem.create({ data: item }), quantity });
+		}
+
+		//	Format the query to create the product
+		const query = {
+			...product,
+			model: { connectOrCreate: { where: { url: model.url }, create: model } },
+			series: { connectOrCreate: { where: { name: series.name }, create: series } },
+			features: {
+				connectOrCreate: features.map((feature) => ({ where: { name: feature.name }, create: feature })),
+			},
+			includedItems: {
+				connectOrCreate: dbIncludedItems.map(({ data, quantity }) => ({
+					where: { quantity_itemId: { quantity, itemId: data.id } },
+					create: { quantity, itemId: data.id },
+				})),
+			},
+			faqs: {
+				connectOrCreate: faqs.map((faq) => ({
+					where: { question_answer: { question: faq.question, answer: faq.answer } },
+					create: faq,
+				})),
+			},
+		};
+
+		if (existingProduct)
+			return await prisma.product.update({
+				where: { id },
+				data: query,
+			});
+
+		return await prisma.product.create({ data: query });
 	};
 
 	private parse: IParse = ({
