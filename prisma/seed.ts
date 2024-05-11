@@ -29,12 +29,25 @@ async function createRandomCustomers(numCustomers: number) {
 				balance,
 			},
 		});
-
+		const shippingAddress = await prisma.shippingAddress.create({
+			data: {
+				label: faker.lorem.words(),
+				street: faker.location.streetAddress(),
+				city: faker.location.city(),
+				country: faker.location.country(),
+				url: faker.internet.url(),
+			},
+		});
 		const customer = await prisma.customer.create({
 			data: {
 				user: {
 					connect: {
 						id: user.id,
+					},
+				},
+				shippingAddress: {
+					connect: {
+						id: shippingAddress.id,
 					},
 				},
 			},
@@ -59,22 +72,6 @@ async function createRandomOrders(customers: Prisma.CustomerCreateManyInput[]) {
 			const total = subtotal + shippingFee;
 			const estimatedArrival = faker.date.future();
 
-			// Create a new shipping address
-			const shippingAddress = await prisma.shippingAddress.create({
-				data: {
-					label: faker.lorem.words(),
-					street: faker.location.streetAddress(),
-					city: faker.location.city(),
-					country: faker.location.country(),
-					url: faker.internet.url(),
-					customer: {
-						connect: {
-							id: customer.id,
-						},
-					},
-				},
-			});
-
 			// Get a random product
 			const product = await prisma.product.findFirst();
 
@@ -87,7 +84,7 @@ async function createRandomOrders(customers: Prisma.CustomerCreateManyInput[]) {
 					estimatedArrival,
 					shippingAddress: {
 						connect: {
-							id: shippingAddress.id,
+							id: customer.shippingAddressId,
 						},
 					},
 					customer: {
@@ -115,7 +112,7 @@ async function createRandomTransactions(customers: Prisma.CustomerCreateManyInpu
 	for (const customer of customers) {
 		const numTransactions = faker.datatype.number({ min: 1, max: 5 });
 		for (let i = 0; i < numTransactions; i++) {
-			const amount = faker.finance.amount();
+			const amount = parseFloat(faker.finance.amount());
 			const type = faker.random.arrayElement(['deposit', 'withdrawal']);
 
 			const transaction = await prisma.transaction.create({
