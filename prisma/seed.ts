@@ -44,7 +44,9 @@ async function createRandomCustomers(numCustomers: number) {
 
 	return customers;
 }
-
+function randomNumber(min, max) {
+	return Math.floor(Math.random() * (max - min) + min);
+}
 async function createRandomOrders(customers: Prisma.CustomerCreateManyInput[]) {}
 
 async function createRandomTransactions(customers: Prisma.CustomerCreateManyInput[]) {}
