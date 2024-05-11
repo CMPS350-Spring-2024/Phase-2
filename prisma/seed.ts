@@ -47,7 +47,67 @@ async function createRandomCustomers(numCustomers: number) {
 function randomNumber(min, max) {
 	return Math.floor(Math.random() * (max - min) + min);
 }
-async function createRandomOrders(customers: Prisma.CustomerCreateManyInput[]) {}
+async function createRandomOrders(customers: Prisma.CustomerCreateManyInput[]) {
+	const orders = [];
+	for (const customer of customers) {
+		const numOrders = randomNumber(1, 5);
+		for (let i = 0; i < numOrders; i++) {
+			const quantity = randomNumber(1, 10);
+			const subtotal = parseFloat(faker.finance.amount());
+			const shippingFee = parseFloat(faker.finance.amount());
+			const total = subtotal + shippingFee;
+			const estimatedArrival = faker.date.future();
+
+			// Create a new shipping address
+			const shippingAddress = await prisma.shippingAddress.create({
+				data: {
+					label: faker.lorem.words(),
+					street: faker.location.streetAddress(),
+					city: faker.location.city(),
+					country: faker.location.country(),
+					url: faker.internet.url(),
+					customer: {
+						connect: {
+							id: customer.id,
+						},
+					},
+				},
+			});
+
+			// Get a random product
+			const product = await prisma.product.findFirst();
+
+			const order = await prisma.order.create({
+				data: {
+					quantity,
+					subtotal,
+					shippingFee,
+					total,
+					estimatedArrival,
+					shippingAddress: {
+						connect: {
+							id: shippingAddress.id,
+						},
+					},
+					customer: {
+						connect: {
+							id: customer.id,
+						},
+					},
+					product: {
+						connect: {
+							id: product.id,
+						},
+					},
+				},
+			});
+
+			orders.push(order);
+		}
+	}
+
+	return orders;
+}
 
 async function createRandomTransactions(customers: Prisma.CustomerCreateManyInput[]) {}
 
