@@ -1,6 +1,11 @@
 'use client'; // This is a client component
+import ProductService from '@/db/ProductService';
 import Chart from 'chart.js';
 import React from 'react';
+
+async function getDefaultAsync() {
+	return ProductService.getTotalNumberOfOrders;
+}
 
 export default function CardBarChart2() {
 	React.useEffect(() => {
@@ -114,7 +119,7 @@ export default function CardBarChart2() {
 					</div>
 				</div>
 				<div className='flex-auto p-4'>
-					{/* Chart */}
+					{getDefaultAsync()}
 					<div className='h-350-px relative'>
 						<canvas id='bar-chart2'></canvas>
 					</div>
