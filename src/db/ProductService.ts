@@ -5,7 +5,7 @@ const prisma = new PrismaClient();
 
 type IGetMany = (options: { seriesName?: string; seriesDescription?: string }) => Promise<Array<Product> | null | undefined>;
 type IGetUnique = (options: { id?: number }) => Promise<Product | null | undefined>;
-type IGetCount = () => Promise<number>;
+type IGetCount = (options: { seriesName?: string; seriesDescription?: string }) => Promise<number>;
 
 type IParseJson = (data: Record<string, any>) => {
 	product: Product;
@@ -23,10 +23,8 @@ class ProductService {
 		prisma.product.findMany({
 			where: {
 				series: {
-					is: {
-						name: options.seriesName,
-						description: options.seriesDescription,
-					},
+					name: options.seriesName,
+					description: options.seriesDescription,
 				},
 			},
 			include: {
@@ -52,7 +50,15 @@ class ProductService {
 			},
 		});
 
-	getCount: IGetCount = async () => await prisma.product.count();
+	getCount: IGetCount = async (options) =>
+		prisma.product.count({
+			where: {
+				series: {
+					name: options.seriesName,
+					description: options.seriesDescription,
+				},
+			},
+		});
 
 	addDefaultData = async () => {
 		const defaultProducts = await fs.readJson(this._defaultDataPath);
