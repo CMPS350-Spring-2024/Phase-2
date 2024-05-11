@@ -16,6 +16,7 @@
 		"seed": "ts-node --compiler-options {\"module\":\"CommonJS\"} prisma/seed.ts"
 	},
 	"dependencies": {
+		"@faker-js/faker": "^8.4.1",
 		"@floating-ui/dom": "^1.6.3",
 		"@prisma/client": "^5.13.0",
 		"chart.js": "2.9.3",
