@@ -12,6 +12,10 @@ type IGetCount = (options: {
 	dateTime?: Date;
 	estimatedArrival?: Date;
 }) => Promise<number>;
+type IGetHistory = (
+	id: number,
+	options?: { sorted?: boolean; ongoing?: boolean; past?: boolean },
+) => Promise<Array<Order> | null | undefined>;
 
 class ProductService {
 	_defaultDataPath = path.join(process.cwd(), 'src/data/default_orders.json');
@@ -31,6 +35,20 @@ class ProductService {
 				],
 			},
 		});
+
+	getSaleHistory: IGetHistory = async (droneId, options) =>
+		prisma.order.findMany({
+			where: {
+				productId: droneId,
+				estimatedArrival:
+					options?.ongoing ? { gte: new Date() }
+					: options?.past ? { lt: new Date() }
+					: undefined,
+			},
+			orderBy: options?.sorted ? { dateTime: 'desc' } : undefined,
+		});
+
+	getOrderHistory: IGetHistory = async (userId, options) => this.getSaleHistory(userId, options);
 }
 
 export default new ProductService();
