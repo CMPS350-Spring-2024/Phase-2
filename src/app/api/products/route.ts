@@ -1,12 +1,16 @@
 import ProductService from '@/db/ProductService';
 
 export const GET = async (req: Request) => {
-	const { searchParams } = new URL(req.url);
-	const id = Number(searchParams.get('id')) || undefined;
-	const seriesName = searchParams.get('seriesName') || undefined;
-	const seriesDescription = searchParams.get('seriesDescription') || undefined;
+	try {
+		const { searchParams } = new URL(req.url);
+		const id = Number(searchParams.get('id')) || undefined;
+		const seriesName = searchParams.get('seriesName') || undefined;
+		const seriesDescription = searchParams.get('seriesDescription') || undefined;
 
-	const products = await ProductService.getMany({ id, seriesName, seriesDescription });
-
-	return Response.json(products);
+		if (id) return Response.json(await ProductService.getUnique({ id }));
+		return Response.json(await ProductService.getMany({ seriesName, seriesDescription }));
+	} catch (error) {
+		if (error instanceof Error) return Response.json({ error: error.message });
+		return Response.json({ error: 'An unknown error occurred whilst fetching the products' });
+	}
 };

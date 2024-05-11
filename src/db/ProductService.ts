@@ -3,110 +3,122 @@ import fs from 'fs-extra';
 import path from 'path';
 const prisma = new PrismaClient();
 
-type IGetMany = (options: {
-	id?: number;
-	seriesName?: string;
-	seriesDescription?: string;
-}) => Promise<Array<Product> | null | undefined>;
+type IGetMany = (options: { seriesName?: string; seriesDescription?: string }) => Promise<Array<Product> | null | undefined>;
+type IGetUnique = (options: { id?: number }) => Promise<Product | null | undefined>;
+type IGetCount = () => Promise<number>;
+
+type IParseJson = (data: Record<string, any>) => {
+	product: Product;
+	model: Model;
+	series: Series;
+	features: Array<Feature>;
+	includedItems: Array<QuantizedIncludedItem & IncludedItem>;
+	faqs: Array<Question>;
+};
 
 class ProductService {
 	_defaultDataPath = path.join(process.cwd(), 'src/data/product_list.json');
 
-	getMany: IGetMany = async (options) => {
-		try {
-			return prisma.product.findMany({
-				where: {
-					id: options.id,
-					series: {
-						is: {
-							name: options.seriesName,
-							description: options.seriesDescription,
-						},
+	getMany: IGetMany = async (options) =>
+		prisma.product.findMany({
+			where: {
+				series: {
+					is: {
+						name: options.seriesName,
+						description: options.seriesDescription,
 					},
 				},
-				include: {
-					model: true,
-					series: true,
-					features: true,
-					includedItems: true,
-					faqs: true,
-				},
-			});
-		} catch (error) {
-			return null;
-		}
-	};
+			},
+			include: {
+				model: true,
+				series: true,
+				features: true,
+				includedItems: true,
+				faqs: true,
+			},
+		});
+
+	getUnique: IGetUnique = async (options) =>
+		prisma.product.findUnique({
+			where: {
+				id: options.id,
+			},
+			include: {
+				model: true,
+				series: true,
+				features: true,
+				includedItems: true,
+				faqs: true,
+			},
+		});
+
+	getCount: IGetCount = async () => await prisma.product.count();
 
 	addDefaultData = async () => {
-		try {
-			const defaultProducts = await fs.readJson(this._defaultDataPath);
+		const defaultProducts = await fs.readJson(this._defaultDataPath);
 
-			for (const productJson of defaultProducts) {
-				const {
-					product: { id: _, seriesId: __, modelId: ___, ...product },
-					model,
-					series,
-					features,
-					includedItems,
-					faqs,
-				} = this.transformJsonToModel(productJson);
+		for (const productJson of defaultProducts) {
+			const {
+				product: { id: _, seriesId: __, modelId: ___, ...product },
+				model,
+				series,
+				features,
+				includedItems,
+				faqs,
+			} = this.parseJson(productJson);
 
-				//	Find or create included items
-				const dbIncludedItems = [];
-				for (const { quantity, ...item } of includedItems) {
-					const existingItem = await prisma.includedItem.findFirst({
-						where: { name: item.name, imageUrl: item.imageUrl },
-					});
-					if (existingItem) {
-						dbIncludedItems.push({ data: existingItem, quantity });
-						continue;
-					}
-					dbIncludedItems.push({ data: await prisma.includedItem.create({ data: item }), quantity });
+			//	Find or create included items
+			const dbIncludedItems = [];
+			for (const { quantity, ...item } of includedItems) {
+				const existingItem = await prisma.includedItem.findFirst({
+					where: { name: item.name, imageUrl: item.imageUrl },
+				});
+				if (existingItem) {
+					dbIncludedItems.push({ data: existingItem, quantity });
+					continue;
 				}
-
-				//	Format the query to create the product
-				const query = {
-					...product,
-					model: { connectOrCreate: { where: { url: model.url }, create: model } },
-					series: { connectOrCreate: { where: { name: series.name }, create: series } },
-					features: {
-						connectOrCreate: features.map((feature) => ({ where: { name: feature.name }, create: feature })),
-					},
-					includedItems: {
-						connectOrCreate: dbIncludedItems.map(({ data, quantity }) => ({
-							where: { quantity_itemId: { quantity, itemId: data.id } },
-							create: { quantity, itemId: data.id },
-						})),
-					},
-					faqs: {
-						connectOrCreate: faqs.map((faq) => ({
-							where: { question_answer: { question: faq.question, answer: faq.answer } },
-							create: faq,
-						})),
-					},
-				};
-
-				//	Check if there is an existing product with the same name
-				const existingProduct = await prisma.product.findFirst({ where: { name: product.name } });
-
-				//	If there is an existing product, update it
-				if (existingProduct) {
-					await prisma.product.update({
-						where: { name: product.name },
-						data: query,
-					});
-					return;
-				}
-
-				await prisma.product.create({ data: query });
+				dbIncludedItems.push({ data: await prisma.includedItem.create({ data: item }), quantity });
 			}
-		} catch (error) {
-			console.error('Unable to initialize default products!');
-			console.error(error);
+
+			//	Format the query to create the product
+			const query = {
+				...product,
+				model: { connectOrCreate: { where: { url: model.url }, create: model } },
+				series: { connectOrCreate: { where: { name: series.name }, create: series } },
+				features: {
+					connectOrCreate: features.map((feature) => ({ where: { name: feature.name }, create: feature })),
+				},
+				includedItems: {
+					connectOrCreate: dbIncludedItems.map(({ data, quantity }) => ({
+						where: { quantity_itemId: { quantity, itemId: data.id } },
+						create: { quantity, itemId: data.id },
+					})),
+				},
+				faqs: {
+					connectOrCreate: faqs.map((faq) => ({
+						where: { question_answer: { question: faq.question, answer: faq.answer } },
+						create: faq,
+					})),
+				},
+			};
+
+			//	Check if there is an existing product with the same name
+			const existingProduct = await prisma.product.findFirst({ where: { name: product.name } });
+
+			//	If there is an existing product, update it
+			if (existingProduct) {
+				await prisma.product.update({
+					where: { name: product.name },
+					data: query,
+				});
+				return;
+			}
+
+			await prisma.product.create({ data: query });
 		}
 	};
 
-	private transformJsonToModel = ({
+	private parseJson: IParseJson = ({
 		_id,
 		model: { position, rotation, cameraPosition, ...model },
 		series: { model: seriesModel, ...series },
@@ -114,47 +126,28 @@ class ProductService {
 		includedItems,
 		faqs,
 		...data
-	}: any): {
-		product: Product;
-		model: Model;
-		series: Series;
-		features: Array<Feature>;
-		includedItems: Array<QuantizedIncludedItem & IncludedItem>;
-		faqs: Array<Question>;
-	} => {
-		return {
-			product: {
-				...data,
-				modelName: seriesModel,
-			},
-			model: {
-				...model,
-				positionX: position.x,
-				positionY: position.y,
-				positionZ: position.z,
-				rotationX: rotation.x,
-				rotationY: rotation.y,
-				rotationZ: rotation.z,
-				cameraX: cameraPosition.x,
-				cameraY: cameraPosition.y,
-				cameraZ: cameraPosition.z,
-			},
-			series: series,
-			features: features,
-			includedItems: includedItems,
-			faqs: faqs,
-		};
-	};
-
-	getTotalNumberOfProducts = async (): Promise<number> => {
-		try {
-			const totalProducts = await prisma.product.count();
-			return totalProducts;
-		} catch (error) {
-			console.error('Error getting total number of products:', error);
-			return 0;
-		}
-	};
+	}) => ({
+		product: {
+			...data,
+			modelName: seriesModel,
+		} as any,
+		model: {
+			...model,
+			positionX: position.x,
+			positionY: position.y,
+			positionZ: position.z,
+			rotationX: rotation.x,
+			rotationY: rotation.y,
+			rotationZ: rotation.z,
+			cameraX: cameraPosition.x,
+			cameraY: cameraPosition.y,
+			cameraZ: cameraPosition.z,
+		},
+		series: series,
+		features: features,
+		includedItems: includedItems,
+		faqs: faqs,
+	});
 
 	// Method to calculate the total sales revenue
 	calculateTotalSalesRevenue = async (): Promise<number> => {
@@ -252,4 +245,3 @@ class ProductService {
 }
 
 export default new ProductService();
-
