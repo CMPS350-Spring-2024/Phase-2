@@ -1,4 +1,5 @@
 // @ts-nocheck
+import { faker } from '@faker-js/faker';
 import { Prisma, PrismaClient } from '@prisma/client';
 import ProductService from '../src/db/ProductService';
 import UsersService from '../src/db/UserService';
