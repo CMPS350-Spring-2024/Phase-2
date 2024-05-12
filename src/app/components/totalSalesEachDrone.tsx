@@ -2,12 +2,33 @@
 import Chart from 'chart.js';
 import React from 'react';
 
+import { useEffect, useState } from 'react';
+
 export default function CardBarChart() {
+	const [allProdcuts, setAllProdcuts] = useState();
+
+	useEffect(() => {
+		const fetchData = async () => {
+			try {
+				const response = await fetch('/api/products/all-products');
+				const data = await response.json();
+				setAllProdcuts(data.allProdcuts);
+			} catch (error) {
+				console.error('Error fetching total orders:', error);
+			}
+		};
+
+		fetchData();
+	}, []);
 	React.useEffect(() => {
+		// totalOrders.map((prod) => {
+		// 	console.log('prod');
+		// });
+
 		let config = {
 			type: 'bar',
 			data: {
-				labels: ['Drone 1', 'Drone 2', 'Drone 3', 'Drone 4', 'Drone 5', 'Drone 6'],
+				labels: ['test'],
 				datasets: [
 					{
 						label: 'Total',
@@ -98,7 +119,7 @@ export default function CardBarChart() {
 					<div className='flex flex-wrap items-center'>
 						<div className='relative w-full max-w-full flex-1 flex-grow'>
 							<h6 className='text-blueGray-400 mb-1 text-xs font-semibold uppercase'>Performance</h6>
-							<h2 className='text-blueGray-700 text-xl font-semibold'>Total orders</h2>
+							<h2 className='text-blueGray-700 text-xl font-semibold'>{allProdcuts}</h2>
 						</div>
 					</div>
 				</div>

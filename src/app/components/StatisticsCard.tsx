@@ -1,5 +1,23 @@
 // import TotalOrders from "@/api/products/total-orders/";
+'use client'; // This is a client component
+import { useEffect, useState } from 'react';
+
 export default function StatisticsCard() {
+	const [user, setUser] = useState();
+
+	useEffect(() => {
+		const fetchData = async () => {
+			try {
+				const response = await fetch('/api/users/1');
+				const data = await response.json();
+				setUser(data.data);
+			} catch (error) {
+				console.error('Error fetching user data:', error);
+			}
+		};
+
+		fetchData();
+	}, []);
 	// event.preventDefault();
 
 	return (
@@ -14,7 +32,7 @@ export default function StatisticsCard() {
 								className='this-stat text-xl'
 								id='balance-statistic'
 							>
-								0,00.00{/* 3,889.00 */}
+								{user?.balance || 0}
 							</h2>
 						</div>
 						<div className='flex flex-row content-baseline'>
@@ -23,13 +41,10 @@ export default function StatisticsCard() {
 									className='icon'
 									data-lucide='trending-up'
 								></i>
-								<h2 className='percantage'>{/* 37.3% */}</h2>
+								<h2 className='percantage'>37.3%</h2>
 							</div>
 							<div>
-								<h2 className='duration'>
-									last 00{/* 30 */}
-									days
-								</h2>
+								<h2 className='duration'>last 30 days</h2>
 							</div>
 						</div>
 					</div>
@@ -81,7 +96,7 @@ export default function StatisticsCard() {
 								className='this-stat'
 								id='users-statistic'
 							>
-								0{/* 412,031 */}
+								{user?.totalUsers || 0}
 							</h2>
 							<h2 className='currncy text-gray-600'>Users</h2>
 						</div>
@@ -91,13 +106,10 @@ export default function StatisticsCard() {
 									className='icon'
 									data-lucide='trending-up'
 								></i>
-								<h2 className='percantage'>{/* 53.6% */}</h2>
+								<h2 className='percantage'>53.6%</h2>
 							</div>
 							<div>
-								<h2 className='duration'>
-									last 00 {/* 30 */}
-									days
-								</h2>
+								<h2 className='duration'>last 30 days</h2>
 							</div>
 						</div>
 					</div>
