@@ -323,22 +323,25 @@ class ProductService {
 		}
 	};
 
+	getTop3SellingProducts = async (): Promise<Product[]> => {
+		try {
+			const topSellingProducts = await prisma.product.findMany({
+				orderBy: {
+					numberOfSales: 'asc',
+				},
+				take: 3,
+			});
+			return topSellingProducts;
+		} catch (error) {
+			console.error('Error getting top selling products:', error);
+			return [];
+		}
+	};
 	getProducts = async (): Promise<Product[]> => {
 		try {
 			const allProducts = await prisma.product.findMany({
-				include: {
-					model: true,
-					series: true,
-					features: true,
-					includedItems: {
-						include: {
-							item: true,
-						},
-					},
-					faqs: true,
-				},
 				orderBy: {
-					numberOfSales: 'asc',
+					quantity: 'asc',
 				},
 			});
 			return allProducts;

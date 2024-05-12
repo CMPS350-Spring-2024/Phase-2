@@ -78,6 +78,21 @@ class UserService {
 		return await this.addOne(defaultAdmin);
 	};
 
+	last3RegisteredUsers = async (): Promise<User[]> => {
+		try {
+			const Last5Users = await prisma.user.findMany({
+				orderBy: {
+					createdAt: 'desc',
+				},
+				take: 3,
+			});
+			return Last5Users;
+		} catch (error) {
+			console.error('Error getting top selling products:', error);
+			return [];
+		}
+	};
+
 	parse: IParse = ({ name, shippingAddress, ...data }) => ({
 		shippingAddress,
 		user: {

@@ -1,17 +1,17 @@
-'use client';
+'use client'; // This is a client component
 
 import Chart from 'chart.js';
 import { useEffect, useState } from 'react';
 
-export default function CardBarChart2() {
-	const [top3Drones, setTop3Drones] = useState([]);
+export default function CardBarChart() {
+	const [allProducts, setAllProducts] = useState([]);
 
 	useEffect(() => {
 		const fetchData = async () => {
 			try {
-				const response = await fetch('/api/products/top3');
+				const response = await fetch('/api/products/all-products');
 				const data = await response.json();
-				setTop3Drones(data);
+				setAllProducts(data);
 			} catch (error) {
 				console.error('Error fetching products:', error);
 			}
@@ -20,13 +20,10 @@ export default function CardBarChart2() {
 		fetchData();
 	}, []);
 
-	// console.log(top3Drones);
-
 	useEffect(() => {
-		if (top3Drones.length > 0) {
-			const labels = top3Drones.map((product) => product.name);
-			const data = top3Drones.map((product) => product.numberOfSales);
-			const backgroundColor = ['#4a5568', '#3182ce', '#3152ce'];
+		if (allProducts.length > 0) {
+			const labels = allProducts.map((product) => product.name);
+			const data = allProducts.map((product) => product.quantity);
 
 			let config = {
 				type: 'bar',
@@ -35,10 +32,11 @@ export default function CardBarChart2() {
 					datasets: [
 						{
 							label: 'Quantity',
-							backgroundColor,
-							borderColor: backgroundColor,
+							backgroundColor: '#4a5568',
+							borderColor: '#4a5568',
 							data,
 							fill: false,
+							barThickness: 20,
 						},
 					],
 				},
@@ -47,7 +45,7 @@ export default function CardBarChart2() {
 					responsive: true,
 					title: {
 						display: false,
-						text: 'Top 3 Drones',
+						text: 'Product Quantity',
 					},
 					tooltips: {
 						mode: 'index',
@@ -67,11 +65,10 @@ export default function CardBarChart2() {
 					scales: {
 						xAxes: [
 							{
-								barPercentage: 0.95,
 								display: true,
 								scaleLabel: {
-									display: false,
-									labelString: 'Drones',
+									display: true,
+									labelString: 'Products',
 								},
 								gridLines: {
 									borderDash: [2],
@@ -85,10 +82,6 @@ export default function CardBarChart2() {
 						],
 						yAxes: [
 							{
-								ticks: {
-									display: true,
-									beginAtZero: true,
-								},
 								display: true,
 								scaleLabel: {
 									display: true,
@@ -109,10 +102,10 @@ export default function CardBarChart2() {
 				},
 			};
 
-			let ctx = document.getElementById('bar-chart2').getContext('2d');
+			let ctx = document.getElementById('bar-chart').getContext('2d');
 			window.myBar = new Chart(ctx, config);
 		}
-	}, [top3Drones]);
+	}, [allProducts]);
 
 	return (
 		<>
@@ -120,14 +113,14 @@ export default function CardBarChart2() {
 				<div className='mb-0 rounded-t bg-transparent px-4 py-3'>
 					<div className='flex flex-wrap items-center'>
 						<div className='relative w-full max-w-full flex-1 flex-grow'>
-							<h6 className='text-blueGray-400 mb-1 text-xs font-semibold uppercase'>Top Sellers</h6>
-							<h2 className='text-blueGray-700 text-xl font-semibold'>Top 3 Drones</h2>
+							<h6 className='text-blueGray-400 mb-1 text-xs font-semibold uppercase'> Product Quantity</h6>
+							<h2 className='text-blueGray-700 text-xl font-semibold'>All Products</h2>
 						</div>
 					</div>
 				</div>
 				<div className='flex-auto p-4'>
 					<div className='h-350-px relative'>
-						<canvas id='bar-chart2'></canvas>
+						<canvas id='bar-chart'></canvas>
 					</div>
 				</div>
 			</div>

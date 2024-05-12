@@ -1,7 +1,7 @@
-import SaleChart from '../components/SaleChart.tsx';
 import StatisticsCard from '../components/StatisticsCard.tsx';
+import SaleChart from './lastJoined.tsx';
 import Top3 from './top3Drones.tsx';
-import TotalSaleOfDrones from './totalSalesEachDrone.tsx';
+import TotalSaleOfDrones from './totalQuantityEachDrone.tsx';
 export default function SaleHistoryPage() {
 	return (
 		<>

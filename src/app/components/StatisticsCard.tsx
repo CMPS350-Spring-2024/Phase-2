@@ -5,12 +5,43 @@ import { useEffect, useState } from 'react';
 export default function StatisticsCard() {
 	const [user, setUser] = useState();
 
+	const [users, setUsers] = useState();
+
+	const [prodcutsCount, setPodcutsCount] = useState();
 	useEffect(() => {
 		const fetchData = async () => {
 			try {
 				const response = await fetch('/api/users/1');
 				const data = await response.json();
 				setUser(data.data);
+			} catch (error) {
+				console.error('Error fetching user data:', error);
+			}
+		};
+
+		fetchData();
+	}, []);
+
+	useEffect(() => {
+		const fetchData = async () => {
+			try {
+				const response = await fetch('/api/users/count');
+				const data = await response.json();
+				setUsers(data.data);
+			} catch (error) {
+				console.error('Error fetching user data:', error);
+			}
+		};
+
+		fetchData();
+	}, []);
+
+	useEffect(() => {
+		const fetchData = async () => {
+			try {
+				const response = await fetch('/api/products/count');
+				const data = await response.json();
+				setPodcutsCount(data.data);
 			} catch (error) {
 				console.error('Error fetching user data:', error);
 			}
@@ -61,8 +92,7 @@ export default function StatisticsCard() {
 								className='this-stat'
 								id='sale-statistic'
 							>
-								{/* {response.json()} */}
-								{/* 41,321 */}
+								{prodcutsCount || 0}
 							</h2>
 
 							<h2 className='currncy text-gray-600'>Drones</h2>
@@ -73,13 +103,10 @@ export default function StatisticsCard() {
 									className='icon'
 									data-lucide='trending-up'
 								></i>
-								<h2 className='percantage'>{/* 1.51% */}</h2>
+								<h2 className='percantage'>1.51%</h2>
 							</div>
 							<div>
-								<h2 className='duration'>
-									last 00{/* 30 */}
-									days
-								</h2>
+								<h2 className='duration'>last 30 days</h2>
 							</div>
 						</div>
 					</div>
@@ -96,7 +123,7 @@ export default function StatisticsCard() {
 								className='this-stat'
 								id='users-statistic'
 							>
-								{user?.totalUsers || 0}
+								{users || 0}
 							</h2>
 							<h2 className='currncy text-gray-600'>Users</h2>
 						</div>
@@ -122,7 +149,7 @@ export default function StatisticsCard() {
 					<div className='group'>
 						<p className='label'>Click Rate</p>
 						<div className='this-stat-group'>
-							<h2 className='this-stat'>{/* 48.54 */}00%</h2>
+							<h2 className='this-stat'>48.54%</h2>
 						</div>
 						<div className='flex flex-row'>
 							<div className='percantage-group'>
@@ -130,16 +157,10 @@ export default function StatisticsCard() {
 									className='icon'
 									data-lucide='trending-down'
 								></i>
-								<h2 className='percantage'>
-									{/* 4.1 */}
-									00%
-								</h2>
+								<h2 className='percantage'>4.1%</h2>
 							</div>
 							<div>
-								<h2 className='duration'>
-									last 00 {/* 30 */}
-									days
-								</h2>
+								<h2 className='duration'>last 30 days</h2>
 							</div>
 						</div>
 					</div>
