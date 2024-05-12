@@ -29,6 +29,7 @@ async function createRandomCustomers(numCustomers: number) {
 				balance,
 			},
 		});
+
 		const shippingAddress = await prisma.shippingAddress.create({
 			data: {
 				label: faker.lorem.words(),
@@ -38,6 +39,7 @@ async function createRandomCustomers(numCustomers: number) {
 				url: faker.internet.url(),
 			},
 		});
+
 		const customer = await prisma.customer.create({
 			data: {
 				user: {
@@ -58,9 +60,11 @@ async function createRandomCustomers(numCustomers: number) {
 
 	return customers;
 }
+
 function randomNumber(min, max) {
 	return Math.floor(Math.random() * (max - min) + min);
 }
+
 async function createRandomOrders(customers: Prisma.CustomerCreateManyInput[]) {
 	const orders = [];
 	for (const customer of customers) {
@@ -106,10 +110,11 @@ async function createRandomOrders(customers: Prisma.CustomerCreateManyInput[]) {
 
 	return orders;
 }
-
 async function createRandomTransactions(customers: Prisma.CustomerCreateManyInput[]) {
 	const transactions = [];
-	for (const customer of customers) {
+	let lastCustomerId: number | null = null;
+
+	for (let i = 0; i < customers.length; i++) {
 		const numTransactions = randomNumber(2, 6);
 		for (let i = 0; i < numTransactions; i++) {
 			const amount = parseFloat(faker.finance.amount());
@@ -117,13 +122,20 @@ async function createRandomTransactions(customers: Prisma.CustomerCreateManyInpu
 			if (numTransactions < 3) type = 'deposit';
 			else type = 'withdrawal';
 
+			// Randomly select a customer for this transaction, but ensure it's different from the last one
+			let randomCustomer;
+			do {
+				randomCustomer = customers[Math.floor(Math.random() * customers.length)];
+			} while (randomCustomer.id === lastCustomerId);
+			lastCustomerId = randomCustomer.id;
+
 			const transaction = await prisma.transaction.create({
 				data: {
 					amount,
 					type,
 					customer: {
 						connect: {
-							id: customer.id,
+							id: randomCustomer.id,
 						},
 					},
 				},
@@ -138,13 +150,14 @@ async function createRandomTransactions(customers: Prisma.CustomerCreateManyInpu
 
 async function main() {
 	try {
-		UsersService.addDefaultData();
-		ProductService.addDefaultData();
+		// Create series first, as they are required for products
+		await UsersService.addDefaultData();
+		await ProductService.addDefaultData();
 
 		const numCustomers = 10;
 		const customers = await createRandomCustomers(numCustomers);
-		const orders = await createRandomOrders(customers);
-		const transactions = await createRandomTransactions(customers);
+		await createRandomOrders(customers);
+		await createRandomTransactions(customers);
 
 		console.log(`Created ${customers.length} customers, ${orders.length} orders, and ${transactions.length} transactions.`);
 	} catch (error) {

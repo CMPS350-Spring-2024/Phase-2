@@ -193,5 +193,5 @@ model Transaction {
     type     String
 
     customer   Customer @relation(fields: [customerId], references: [id])
-    customerId Int      @unique
+    customerId Int
 }

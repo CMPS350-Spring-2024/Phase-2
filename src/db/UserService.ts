@@ -25,15 +25,17 @@ class UserService {
 	addOne: IAddOne = async (data, options) => {
 		const { upsert = false } = options || {};
 		const { user, shippingAddress } = this.parse(data);
-
-		//	Are we adding an admin or a customer?
 		const isCustomer = user.email !== 'admin@dji.com';
+
+		// Check if there is an existing user with the same email
+		const existingUser = await prisma.user.findUnique({ where: { email: user.email } });
+
+		// If the user already exists and upsert is not allowed, throw an error
+		if (existingUser && !upsert) {
+			throw new Error(`User with email ${user.email} already exists.`);
+		}
+
 		const repo = (isCustomer ? prisma.customer : prisma.user) as any;
-
-		//	Check if there is an existing user with the same email
-		const existingUser = await prisma.user.findFirst({ where: { email: user.email } });
-
-		//	Format the query to create the product
 		const query = {
 			...(!isCustomer && user),
 			...(isCustomer && {
@@ -59,13 +61,15 @@ class UserService {
 			}),
 		};
 
-		//	If there is an existing user and we are upserting, update it
-		if (upsert && existingUser)
+		// If there is an existing user and upsert is allowed, update it
+		if (upsert && existingUser) {
 			return await repo.update({
 				where: { email: user.email },
 				data: query,
 			});
+		}
 
+		// Otherwise, create a new user
 		return await repo.create({ data: query });
 	};
 

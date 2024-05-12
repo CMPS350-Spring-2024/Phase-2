@@ -86,23 +86,30 @@ class ProductService {
 		const { upsert = false } = options || {};
 		const { product, model, series, features, includedItems, faqs } = this.parse(data);
 
-		//	Check if there is an existing product with the same name
-		const existingProduct = await prisma.product.findFirst({ where: { name: product.name } });
+		// Check if there is an existing product with the same name
+		const existingProduct = await prisma.product.findUnique({ where: { name: product.name } });
 
-		//	Find or create included items
+		// If the product already exists and upsert is not allowed, throw an error
+		if (existingProduct && !upsert) {
+			throw new Error(`Product with name ${product.name} already exists.`);
+		}
+
+		// Find or create included items
 		const dbIncludedItems = [];
 		for (const { quantity, ...item } of includedItems) {
 			const existingItem = await prisma.includedItem.findFirst({
 				where: { name: item.name, imageUrl: item.imageUrl },
 			});
+
 			if (existingItem) {
 				dbIncludedItems.push({ data: existingItem, quantity });
 				continue;
 			}
+
 			dbIncludedItems.push({ data: await prisma.includedItem.create({ data: item }), quantity });
 		}
 
-		//	Format the query to create the product
+		// Format the query to create the product
 		const query = {
 			...product,
 			model: { connectOrCreate: { where: { url: model.url }, create: model } },
@@ -124,13 +131,15 @@ class ProductService {
 			},
 		};
 
-		//	If there is an existing product and we are upserting, update it
-		if (upsert && existingProduct)
+		// If there is an existing product and upsert is allowed, update it
+		if (upsert && existingProduct) {
 			return await prisma.product.update({
 				where: { name: product.name },
 				data: query,
 			});
+		}
 
+		// Otherwise, create a new product
 		return await prisma.product.create({ data: query });
 	};
 

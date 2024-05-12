@@ -192,9 +192,6 @@ CREATE UNIQUE INDEX "Question_question_answer_key" ON "Question"("question", "an
 CREATE UNIQUE INDEX "Model_url_key" ON "Model"("url");
 
 -- CreateIndex
-CREATE UNIQUE INDEX "Transaction_customerId_key" ON "Transaction"("customerId");
-
--- CreateIndex
 CREATE UNIQUE INDEX "_ProductToQuantizedIncludedItem_AB_unique" ON "_ProductToQuantizedIncludedItem"("A", "B");
 
 -- CreateIndex
