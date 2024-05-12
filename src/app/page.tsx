@@ -1,4 +1,4 @@
-import SaleHistoryPage from '../app/components/SaleHistoryPage';
+import SaleHistoryPage from './components/saleHistoryPage';
 export default function Home() {
 	return (
 		<>
